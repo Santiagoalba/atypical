@@ -1,0 +1,248 @@
+<title>A-typical</title>
+</head>
+<body>
+    <nav class="navbar">
+
+        <div class="navbar_logo">
+            <a href="/"><span>ATYPICAL</span></a>
+        </div>
+        <div class="navbar_items">
+            <ul>
+                <li>Our Coachs</li>
+                <li class="games">Games
+                  <div class="dropdownGames">
+
+                    <div class="dropdownGames_grid">
+          
+                      <div class="dropdownGames_grid_item">
+                        <a href="">
+                          <div>
+                            <img src="image/logos/lol.png" alt="">
+                          </div>
+                          <div>
+                            <p class="gameName">League of Legends</p>
+                          </div>
+                        </a>
+                      </div>
+              
+                      <div class="dropdownGames_grid_item">
+                        <a href="">
+                          <div>
+                            <img src="image/logos/dota2.png" alt="">
+                          </div>
+                          <div>
+                            <p class="gameName">Dota 2</p>
+                          </div>
+                        </a>
+                      </div>
+              
+                      <div class="dropdownGames_grid_item"> 
+                        <a href="">
+                          <div>
+                            <img src="image/logos/rl.png" alt="">
+                          </div>
+                          <div>
+                            <p class="gameName">Rocket League</p>
+                          </div>
+                          
+                        </a>
+                      </div>
+              
+                      <div class="dropdownGames_grid_item">  
+                        <a href="">
+                          <div>
+                            <img src="image/logos/starcraft2.png" alt="">
+                          </div>
+                          <div>
+                            <p class="gameName">Starcraft 2</p>
+                          </div>
+                          
+                        </a>
+                      </div>
+              
+                      <div class="dropdownGames_grid_item">  
+                        <a href="">
+                          <div>
+                            <img src="image/logos/ssb.png" alt="">
+                          </div>
+                          <div>
+                            <p class="gameName">Super Smash Bros</p>
+                          </div>
+                        </a>
+                      </div>
+              
+                      <div class="dropdownGames_grid_item">  
+                        <a href="">
+                          <div>
+                            <img src="image/logos/valorant.png" alt="">
+                          </div>
+                          <div>
+                            <p class="gameName">Valorant</p>
+                          </div>
+                        </a>
+                      </div>
+              
+                      <div class="dropdownGames_grid_item">  
+                        <a href="">
+                          <div>
+                            <img src="image/logos/overwatch.png" alt="">
+                          </div>  
+                          <div>
+                            <p class="gameName">Overwatch</p>
+                          </div>
+                        </a>
+                      </div>  
+              
+                      <div class="dropdownGames_grid_item">  
+                        <a href="">
+                          <div>
+                            <img src="image/logos/pubg.png" alt="">
+                          </div>
+                          <div class="gameName">
+                            <p>Player U. Bgs</p>
+                          </div>
+                          
+                        </a>
+                      </div>
+              
+                      </div>
+          
+                  </div>
+                </li>
+                {{#if user}}
+                
+                <li class="user">{{username}}
+                  <div class="user_dropdownUser">
+                    <ul>
+                      <a href="/my-info">
+                        <li>
+                          My Info
+                        </li>
+                      </a>
+                      <a href="/logout"><li>Logout</li></a>
+                    </ul>
+                  </div>
+                 </li> 
+                {{/if}}
+                {{#unless user}}
+                <li class="signIn" onclick="home.showPopUp()">Sign Up</li>
+                <li onclick="home.showPopUpLog()">Log In</li>
+                {{/unless}}
+                <button class="navbar_cta">Choose your master!</button>
+            </ul>
+
+            <!-- <div class="navbar_cta">
+                <button>Start!</button>
+            </div> -->
+
+        </div>
+        
+        <div class="signInPopUp">
+
+          <div class="signInPopUp_title">
+
+            <h1>Sign up for ATYPICAL</h1>
+            <p>The best coaching experience</p>
+
+          </div>
+
+          <div class="signInForm">
+
+            <div class="signInForm_logo">ATYPICAL</div>
+
+            <form action="/signup" id="form" method="POST">
+
+            <div class="signInForm_input">
+              <input class="boxInput" type="text" name="name" placeholder="Name" id="nick" value="{{name}}">
+            </div>
+            
+            <div class="signInForm_input">
+              <input class="boxInput" type="email" name="email" placeholder="Mail" id="email" value="{{email}}">
+            </div> 
+              
+            <div class="signInForm_input">
+              <input class="boxInput" type="password" name="password" placeholder="Password" id="password" >
+            </div> 
+
+            <div class="signInForm_input">
+              <input class="boxInput" type="password" name="password2" placeholder="Re-type Password" id="password2">
+            </div> 
+            
+
+            <div class="formButton">
+              <button type="submit">Sign Up</button>
+            </div>
+
+            </form>
+    
+            <div class="account">
+              <p>Already have an account? <span onclick="home.toLogIn()"> Log In</span> </p>
+            </div>
+            <p class="signInPopUp_close" onclick="home.hidePopUp()">Close tab</p>
+          </div>
+          
+        </div>
+
+        <div class="logInPopUp">
+
+          <div class="logInPopUp_title">
+
+            <h1>Log in ATYPICAL</h1>
+            <p>The best coaching experience</p>
+
+          </div>
+
+          <div class="logInForm">
+
+            <div class="logInForm_logo">ATYPICAL</div>
+
+            <form action="/login" id="form" method="POST">
+
+            <div class="logInForm_input">
+              <input class="boxInput" type="text" name="name" placeholder="Name" id="nick" value="{{name}}">
+            </div>
+              
+            <div class="logInForm_input">
+              <input class="boxInput" type="password" name="password" placeholder="Password" id="pass">
+            </div> 
+
+            <div class="formButton">
+              <button type="submit">Log In</button>
+            </div>
+
+            </form>
+
+            <div class="accountLog">
+              <p>Dont have an account? <span onclick="home.toSignUp()"> Sign Up</span> </p>
+            </div>
+            <p class="logInPopUp_close" onclick="home.hidePopUpLog()">Close tab</p>
+          </div>
+          
+        </div>
+         
+        
+
+    </nav>
+
+    {{#each errors}}
+       <div class="validation_errors">
+          <p>{{text}}</p>
+       </div>       
+              
+    {{/each}}
+
+    <nav class="navMobile">
+
+      <div class="navMovile_logo">
+        <span>ATYPICAL</span>
+      </div>
+
+      <div class="navMobile_items">
+            
+          <a href="#"><img src="image/user.png" alt=""></a>
+          <a href="#"><img src="image/gamepad.png" alt=""></a>
+          <a href="#"><img src="image/user.png" alt=""></a>
+      
+     </div>
+
+    </nav>

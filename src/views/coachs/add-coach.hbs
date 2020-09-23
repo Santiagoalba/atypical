@@ -1,0 +1,43 @@
+
+<div class="signInForm margin-auto">
+
+    <div class="signInForm_logo">ATYPICAL</div>
+
+    <form action="/addCoach" method="POST" enctype="multipart/form-data">
+        <div class="signInForm_input">
+            <input type="text" name="name" placeholder="Nombre">
+        </div>
+        <div class="signInForm_input">
+            <input type="text" name="surname" placeholder="Apellido">
+        </div>
+        <div class="signInForm_input">
+            <input type="text" name="ign"  placeholder="Nick">
+        </div>
+        <div class="signInForm_input">
+            <input type="text" name="description" placeholder="Descripcion">
+        </div>
+        <div class="signInForm_input">
+            <input type="text" name="game" placeholder="Juego">
+        </div>
+        <div class="signInForm_input">
+            <input type="number" name="price" placeholder="Precio">
+        </div>
+        
+            <div class="signInForm_file"><label for="">Coach photo</label></div>
+            <input type="file" name="img" placeholder="Foto">
+        
+            {{!-- <div class="signInForm_file"><label for="">Team logo</label></div>
+            <input type="file"  name="imglogo" placeholder="Logo"> --}}
+        
+        <div class="formButton">
+            <button type="submit">Add Coach</button>
+        </div>
+    </form>
+</div>
+
+<form action="/upload" method="POST" enctype="multipart/form-data">
+    <div class="signInForm_file"><label for="">IMAGEN</label></div>
+    <input type="file" name="imagen" placeholder="Foto">
+    <button type="submit">Subirimagen</button>
+</form>
+

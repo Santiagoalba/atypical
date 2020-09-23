@@ -1,0 +1,134 @@
+
+  <div class="swiper-main">
+        <div class="swiper-text">
+            <span>ATYPICAL</span>
+            <h1>brings you to the next level</h1>
+            <div class="sliderLine"></div>
+            <p>Not your typical coaching experience, our trained experts knows what you need to become a better player</p>
+
+        </div>
+            
+        <div class="swiper-wrapper" >
+
+          <div class="swiper-slide"><img src="image/images.png" alt=""></div>
+          
+          
+        </div>
+        <!-- Add Pagination -->
+        <!-- <div class="swiper-pagination"></div> -->
+        <!-- Add Arrows -->
+        <!-- <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div> -->
+      </div>
+    
+    
+
+    <div class="stamp">
+        <p>Get coached by the Pros!</p>
+    </div>
+
+    <!-- <div class="triangle"></div> -->
+
+    <div class="skills">
+        <div class="skills_card cardAnimation1">
+            <img src="image/film.png" alt="">
+            <H1>Replay Analysis</H1>
+            <p>Not only you will be coached during your games but also be able to watch the replays with your coach to analize what you excel at and your most common mistakes</p>
+        </div>
+        <div class="skills_card cardAnimation1">
+            <img src="image/trophy.png" alt="">
+            <H1>Basic to Advanced!</H1>
+            <p>Coachs are prepared for every situation, from teaching a new player to get into the game to teaching you advanced strategies on how to rank up</p>
+        </div>
+        <div class="skills_card cardAnimation2">
+            <img src="image/megaphone.png" alt="">
+            <H1>One on One</H1>
+            <p>Our lessons are one on one which means your coach will be focused on your skills and your mistakes and will make you better at those areas based on his game knowledge</p>
+        </div>
+        <div class="skills_card cardAnimation2">
+            <img src="image/people.png" alt="">
+            <H1>Professional Coach</H1>
+            <p>You can be coached by one of the best pro players at your favourite e-sports!</p>
+        </div>
+    </div>
+
+    <div class="coach_banner">
+      <h1>Those are some of our game experts!</h1>
+
+    </div>
+
+   
+
+    <div id="coach">
+        {{#each coachs}}
+      <div class="coachs_card">
+        <div class="coachs_card_img">
+            <img src="uploads/{{img}}" alt="">
+        </div>
+        <div class="coachs_card_info">
+            <div class="coachs_card_info_player">
+            <p> {{name}} {{ign}} {{surname}}  </p> <img src="" alt="">
+            </div>
+            <div class="coachs_card_info_review"> {{description}}</div>
+            <div class="coachs_card_info_important">
+            <p>{{game}}</p> <p>${{price}}.00</p>
+            </div>
+    
+        </div>
+        </div>
+      {{/each}}
+    </div>
+
+
+    <div class="swiper-container">
+        
+        <div class="swiper-wrapper">
+        
+
+           <div class="swiper-slide slideOne">
+               <div class="swiper-slide-info">
+                    <img src="image/VALORANT.png" alt="" class="logo">
+                    <p>Learn how to grow in ladder or get better at the newest star in the fps e-sports scene "Valorant" with growing audience.</p>
+                    <a href="/coachs/valorant"><button>BE A RADIANT</button></a>
+               </div>
+                
+                <div class="swiper-slide-base">
+                    <img src="image/Trazado.png" alt="" class="graph">
+                    <img src="image/valbig.png" class="img">
+                    
+                </div>
+                
+
+
+            </div>
+
+
+
+          <div class="swiper-slide slideOne">
+               <div class="swiper-slide-info">
+                    <img src="image/league.png" alt="" class="logo">
+                    <p>Be one of the best solo or team player at the biggest MOBA</p>
+                    <a href="/coachs/league"><button>BE A CHALLENGER</button></a>
+               </div>
+                
+                <div class="swiper-slide-base">
+                    <img src="image/Trazado.png" alt="" class="graph">
+                    <img src="image/valbig.png" class="img">
+                    
+                </div>
+                
+
+
+            </div>
+          <div class="swiper-slide">Slide 3</div>
+          <div class="swiper-slide">Slide 4</div>
+          <div class="swiper-slide">Slide 5</div>
+          <div class="swiper-slide">Slide 6</div>
+          <div class="swiper-slide">Slide 7</div>
+          <div class="swiper-slide">Slide 8</div>
+          <div class="swiper-slide">Slide 9</div>
+          <div class="swiper-slide">Slide 10</div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+      </div>

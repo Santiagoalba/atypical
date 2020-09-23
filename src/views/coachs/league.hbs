@@ -1,0 +1,22 @@
+
+{{#each coachs}}
+{{log name}}
+    <div id="coach">
+<div class="coachs_card">
+        <div class="coachs_card_img">
+            <img src="uploads/{{img}}" alt="">
+        </div>
+        <div class="coachs_card_info">
+            <div class="coachs_card_info_player">
+            <p> {{coach.name}} {{ign}} {{surname}}  </p> <img src="" alt="">
+            </div>
+            <div class="coachs_card_info_review"> {{description}}</div>
+            <div class="coachs_card_info_important">
+            <p>{{game}}</p> <p>${{price}}.00</p>
+            </div>
+    
+        </div>
+        </div>
+</div>
+
+{{/each}}

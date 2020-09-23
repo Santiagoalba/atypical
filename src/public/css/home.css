@@ -1,0 +1,1320 @@
+.margin-auto {
+  margin: auto;
+}
+
+body {
+  margin: 0;
+  position: relative;
+}
+
+.navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: black;
+  color: white;
+}
+
+.navbar .navbar_logo {
+  margin: 10px 0;
+}
+
+.navbar .navbar_logo a {
+  text-decoration: none;
+  color: white;
+}
+
+.navbar .navbar_logo a span {
+  font-family: "Orbitron", sans-serif;
+  font-size: 50px;
+}
+
+.navbar .navbar_items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  background-color: #27272b;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+}
+
+.navbar .navbar_items ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0px;
+  margin: 0px;
+  height: 50px;
+}
+
+.navbar .navbar_items ul a {
+  text-decoration: none;
+  color: white;
+  height: 100%;
+}
+
+.navbar .navbar_items ul .navbar_cta {
+  z-index: 2;
+  background-color: #dd5126;
+  padding: 5px 30px;
+  font-family: "Exo", sans-serif;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border: 1px #dd5126 solid;
+  margin-left: 10px;
+}
+
+.navbar .navbar_items ul .games:hover .dropdownGames {
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+  -webkit-animation-duration: 0.7s;
+          animation-duration: 0.7s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.navbar .navbar_items ul .user:hover .user_dropdownUser {
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+  -webkit-animation-duration: 0.7s;
+          animation-duration: 0.7s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    max-height: 0;
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    max-height: 100%;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    max-height: 0;
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    max-height: 100%;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+.navbar .navbar_items li {
+  list-style: none;
+  font-family: "Exo", sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: -webkit-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+}
+
+.navbar .navbar_items li:hover {
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-name: navTransition;
+          animation-name: navTransition;
+}
+
+@-webkit-keyframes navTransition {
+  from {
+    background-color: black;
+    color: white;
+  }
+  to {
+    background-color: white;
+    color: black;
+  }
+}
+
+@keyframes navTransition {
+  from {
+    background-color: black;
+    color: white;
+  }
+  to {
+    background-color: white;
+    color: black;
+  }
+}
+
+.navbar .navbar_items li .dropdownGames {
+  max-height: 0;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  top: 133px;
+  right: 0;
+  z-index: 3;
+  cursor: pointer;
+}
+
+.navbar .navbar_items li .dropdownGames .dropdownGames_grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[7];
+      grid-template-columns: repeat(7, 1fr);
+  height: minmax(0, auto);
+  background-color: #27272b;
+}
+
+.navbar .navbar_items li .dropdownGames .dropdownGames_grid .dropdownGames_grid_item {
+  padding: 10px;
+  margin: 0px 10px;
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 195px;
+}
+
+.navbar .navbar_items li .dropdownGames .dropdownGames_grid .dropdownGames_grid_item a {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+}
+
+.navbar .navbar_items li .dropdownGames .dropdownGames_grid .dropdownGames_grid_item:hover {
+  -webkit-animation: colored 1s forwards;
+          animation: colored 1s forwards;
+}
+
+@-webkit-keyframes colored {
+  0% {
+    -webkit-filter: grayscale(1);
+            filter: grayscale(1);
+  }
+  100% {
+    -webkit-filter: grayscale(0);
+            filter: grayscale(0);
+    background-color: white;
+  }
+}
+
+@keyframes colored {
+  0% {
+    -webkit-filter: grayscale(1);
+            filter: grayscale(1);
+  }
+  100% {
+    -webkit-filter: grayscale(0);
+            filter: grayscale(0);
+    background-color: white;
+  }
+}
+
+.navbar .navbar_items li .dropdownGames .dropdownGames_grid .dropdownGames_grid_item .gameName {
+  font-size: 18px;
+  font-family: "Exo", sans-serif;
+  color: black;
+  display: none;
+}
+
+.navbar .navbar_items li .dropdownGames .dropdownGames_grid .dropdownGames_grid_item:hover .gameName {
+  display: block;
+}
+
+.navbar .user .user_dropdownUser {
+  position: absolute;
+  top: 133px;
+  z-index: 1000;
+  max-height: 0px;
+  overflow: hidden;
+}
+
+.navbar .user .user_dropdownUser ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: auto;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #27272b;
+}
+
+.navbar .user .user_dropdownUser ul a {
+  height: 50px;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    max-height: 0;
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    max-height: 100%;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+.validation_errors {
+  background: #200122;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-gradient(linear, left top, right top, from(#6f0000), to(#200122));
+  background: linear-gradient(to right, #6f0000, #200122);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-family: "Exo", sans-serif;
+  font-size: 14px;
+  margin: 0;
+  padding: 10px;
+  color: white;
+}
+
+.signInPopUp {
+  position: fixed;
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100vh;
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 10000;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-name: downwards;
+          animation-name: downwards;
+}
+
+@-webkit-keyframes downwards {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+
+@keyframes downwards {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+
+.signInPopUp .signInPopUp_title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 10px;
+  font-family: "Exo", sans-serif;
+}
+
+.signInPopUp .signInPopUp_title h1 {
+  color: #dd5126;
+}
+
+.signInPopUp .signInPopUp_close {
+  margin: 0;
+  color: #6d7c90;
+  font-size: 12px;
+  font-family: "Exo", sans-serif;
+  cursor: pointer;
+}
+
+.show {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.signInForm {
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px 0;
+  border-radius: 20px;
+  width: 350px;
+}
+
+.signInForm .signInForm_input {
+  margin: 10px 0;
+}
+
+.signInForm .signInForm_input input {
+  padding: 8px 0 6px 7px;
+  font-size: 14px;
+  font-family: "Exo", sans-serif;
+  width: 230px;
+}
+
+.signInForm .signInForm_logo {
+  font-family: "Orbitron", sans-serif;
+  font-size: 30px;
+  color: black;
+  margin: 30px 0;
+}
+
+.signInForm .signInForm_file {
+  font-family: "Exo", sans-serif;
+  font-size: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.signInForm .formButton button {
+  width: 100%;
+  margin: 10px 0;
+  background-color: black;
+  font-size: 16px;
+  font-family: "Exo", sans-serif;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.signInForm .account p {
+  width: 350px;
+  border: 1px solid;
+  border-left: 0;
+  border-right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: black;
+  padding: 20px 0;
+  font-size: 16px;
+  font-family: "Exo", sans-serif;
+  text-indent: 5px;
+}
+
+.signInForm .account span {
+  font-weight: bold;
+  color: #3578e5;
+  cursor: pointer;
+}
+
+.navMobile {
+  display: none;
+}
+
+.success_msg {
+  background: #0f0c29;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-gradient(linear, left bottom, left top, from(#24243e), color-stop(#302b63), to(#0f0c29));
+  background: linear-gradient(to top, #24243e, #302b63, #0f0c29);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.success_msg p {
+  color: white;
+  margin: 0;
+  padding: 10px;
+}
+
+.swiper-main {
+  overflow: hidden;
+}
+
+.swiper-main .swiper-slide img {
+  width: 100%;
+  height: auto;
+}
+
+.swiper-main .swiper-text {
+  position: absolute;
+  z-index: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: inherit;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-left: 40px;
+}
+
+.swiper-main .swiper-text span {
+  font-family: "Orbitron", sans-serif;
+  font-size: 22px;
+}
+
+.swiper-main .swiper-text p {
+  width: 50%;
+  color: white;
+  font-family: "Exo", sans-serif;
+}
+
+.swiper-main .swiper-text h1 {
+  color: white;
+  font-family: "Exo", sans-serif;
+  font-size: 20px;
+}
+
+.swiper-main .swiper-text .sliderLine {
+  width: 40%;
+  height: 2px;
+  background-color: white;
+}
+
+.stamp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0px;
+}
+
+.stamp p {
+  font-size: 70px;
+  color: #6D7CFD;
+  margin: 15px 0px;
+  font-family: "Exo", sans-serif;
+}
+
+.triangle {
+  height: 0px;
+  width: 0px;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid white;
+  position: absolute;
+  left: 50%;
+}
+
+.skills {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (15%)[4];
+      grid-template-columns: repeat(4, 15%);
+  grid-column-gap: 10em;
+  padding: 1em;
+  margin-left: 60px;
+  margin-right: 60px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.skills .cardAnimation1 {
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+  -webkit-animation-name: cardAnimation1;
+          animation-name: cardAnimation1;
+}
+
+@-webkit-keyframes cardAnimation1 {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+
+@keyframes cardAnimation1 {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+
+.skills .cardAnimation2 {
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+  -webkit-animation-name: cardAnimation2;
+          animation-name: cardAnimation2;
+}
+
+@-webkit-keyframes cardAnimation2 {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+
+@keyframes cardAnimation2 {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+
+.skills .skills_card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 20px;
+}
+
+.skills .skills_card img {
+  width: 64px;
+}
+
+.skills .skills_card:hover {
+  -webkit-box-shadow: 0 8px 60px 0 rgba(103, 151, 255, 0.11), 0 12px 90px 0 rgba(103, 151, 255, 0.11);
+          box-shadow: 0 8px 60px 0 rgba(103, 151, 255, 0.11), 0 12px 90px 0 rgba(103, 151, 255, 0.11);
+}
+
+.skills .skills_card h1 {
+  font-family: "Exo", sans-serif;
+  font-size: 1.3em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 10px;
+}
+
+.skills .skills_card p {
+  color: #6d7c90;
+  font-family: "Exo", sans-serif;
+  font-size: 0.8em;
+}
+
+.effect {
+  width: 60%;
+  height: 0;
+  position: absolute;
+  border-right: 50px solid transparent;
+  border-bottom: 100px solid red;
+}
+
+.coach_banner {
+  background-color: #f1f1f1;
+  font-family: "Exo", sans-serif;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.coach_banner h1 {
+  margin: 0;
+}
+
+#coach {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (30%)[3];
+      grid-template-columns: repeat(3, 30%);
+  background-color: #f1f1f1;
+  padding: 50px 50px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-column-gap: 1em;
+          column-gap: 1em;
+}
+
+#coach .coachs_card {
+  border-radius: 20px;
+  border: 1px solid;
+  overflow: hidden;
+  height: 190px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#coach .coachs_card .coachs_card_info {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#coach .coachs_card .coachs_card_info .coachs_card_info_player {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 20px;
+  font-family: "Exo", sans-serif;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #27272b;
+}
+
+#coach .coachs_card .coachs_card_info .coachs_card_info_player p {
+  margin-left: 10px;
+  color: white;
+}
+
+#coach .coachs_card .coachs_card_info .coachs_card_info_review {
+  font-family: "Exo", sans-serif;
+  font-size: 12px;
+  height: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 20px;
+}
+
+#coach .coachs_card .coachs_card_info .coachs_card_info_important {
+  font-size: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-family: "Exo", sans-serif;
+  background-color: #27272b;
+  padding: 0 10px;
+}
+
+#coach .coachs_card .coachs_card_info .coachs_card_info_important p {
+  background-color: #dd5126;
+  color: white;
+  padding: 5px;
+}
+
+#coach .coachs_card .coachs_card_img img {
+  height: 200px;
+  width: 100px;
+}
+
+.swiper-container {
+  width: 100%;
+  height: 400px;
+}
+
+.swiper-wrapper .graph {
+  width: 80%;
+  position: absolute;
+  z-index: 1;
+}
+
+.swiper-slide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+}
+
+.swiper-slide-base {
+  height: 400px;
+}
+
+.swiper-slide-info {
+  width: 50%;
+  position: absolute;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  color: white;
+  padding: 20px 50px;
+}
+
+.swiper-slide-info p {
+  z-index: 2;
+  width: 80%;
+  margin: 0px;
+  font-size: 20px;
+  font-family: "Exo", sans-serif;
+}
+
+.swiper-slide-info img {
+  z-index: 2;
+  margin: 50px 0;
+}
+
+.swiper-slide-info a {
+  z-index: 2;
+  margin-top: 50px;
+}
+
+.swiper-slide-info a button {
+  cursor: pointer;
+  background-color: #dd5126;
+  padding: 10px 100px;
+  font-family: "Exo", sans-serif;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border: 1px #dd5126 solid;
+}
+
+.slideOne:hover .img {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+  -webkit-filter: grayscale(0) brightness(0.8);
+          filter: grayscale(0) brightness(0.8);
+}
+
+.slideOne .slideOne .img {
+  -webkit-transition: -webkit-transform 1s ease-in-out;
+  transition: -webkit-transform 1s ease-in-out;
+  transition: transform 1s ease-in-out;
+  transition: transform 1s ease-in-out, -webkit-transform 1s ease-in-out;
+}
+
+.slideOne .graph {
+  z-index: 1;
+  height: 100%;
+  width: 70%;
+  left: 0px;
+  position: absolute;
+}
+
+.slideOne .img {
+  top: -130px;
+  right: -350px;
+  position: absolute;
+  -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+  transition: -webkit-transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+  transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+  transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1), -webkit-transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+  -webkit-filter: grayscale(0.9) brightness(0.5);
+          filter: grayscale(0.9) brightness(0.5);
+}
+
+.slideOne .img:hover {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+footer {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 80px 300px;
+      grid-template-rows: 80px 300px;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  background-color: black;
+  color: white;
+}
+
+footer .logo {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-column: 1/4;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  font-family: "Orbitron", sans-serif;
+  font-size: 36px;
+}
+
+footer .contact {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  font-family: "Exo", sans-serif;
+  font-size: 16px;
+}
+
+footer .games {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  justify-self: center;
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 18px;
+  font-family: "Exo", sans-serif;
+  justify-self: self-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin-left: 100px;
+  margin-top: 20px;
+}
+
+footer .games ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer .games ul li {
+  font-size: 16px;
+}
+
+footer .socials {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+footer .socials .socials_media {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+footer .socials .socials_media a {
+  margin: 0 20px;
+}
+
+footer .socials .socials_newsletter {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3/4;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  font-family: "Exo", sans-serif;
+  font-size: 16px;
+}
+
+footer .socials .socials_newsletter p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+footer .socials .socials_newsletter form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+footer .socials .socials_newsletter form input {
+  padding: 7px 5px;
+  margin-bottom: 10px;
+  width: 60%;
+}
+
+footer .socials .socials_newsletter form button {
+  margin-bottom: 10px;
+  background-color: #dd5126;
+  color: black;
+  font-family: "Exo", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.logInPopUp {
+  position: fixed;
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100vh;
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 10000;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-name: downwards;
+          animation-name: downwards;
+}
+
+@keyframes downwards {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+
+.logInPopUp .logInPopUp_title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 10px;
+  font-family: "Exo", sans-serif;
+}
+
+.logInPopUp .logInPopUp_title h1 {
+  color: #dd5126;
+}
+
+.logInPopUp .logInPopUp_close {
+  margin: 0;
+  color: #6d7c90;
+  font-size: 12px;
+  font-family: "Exo", sans-serif;
+  cursor: pointer;
+}
+
+.logInPopUp .logInForm {
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px 0;
+  border-radius: 20px;
+  width: 350px;
+}
+
+.logInPopUp .logInForm .logInForm_input {
+  margin: 10px 0;
+}
+
+.logInPopUp .logInForm .logInForm_input input {
+  padding: 8px 0 6px 7px;
+  font-size: 14px;
+  font-family: "Exo", sans-serif;
+  width: 230px;
+}
+
+.logInPopUp .logInForm .logInForm_logo {
+  font-family: "Orbitron", sans-serif;
+  font-size: 30px;
+  color: black;
+  margin: 30px 0;
+}
+
+.logInPopUp .logInForm .formButton button {
+  width: 100%;
+  margin: 10px 0;
+  background-color: black;
+  font-size: 16px;
+  font-family: "Exo", sans-serif;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.logInPopUp .logInForm .accountLog p {
+  width: 350px;
+  border: 1px solid;
+  border-left: 0;
+  border-right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: black;
+  padding: 20px 0;
+  font-size: 16px;
+  font-family: "Exo", sans-serif;
+  text-indent: 5px;
+}
+
+.logInPopUp .logInForm .accountLog span {
+  font-weight: bold;
+  color: #3578e5;
+  cursor: pointer;
+}
+
+.show {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media only screen and (max-width: 600px) {
+  .navbar {
+    display: none;
+  }
+  .navMobile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 0 10px;
+    color: white;
+    background-color: black;
+  }
+  .navMobile span {
+    font-family: "Orbitron", sans-serif;
+    font-size: 24px;
+  }
+  .skills {
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
+  }
+  .coach_banner {
+    background-color: #f1f1f1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .coach_banner h1 {
+    margin: 0;
+    margin-top: 10px;
+    font-family: "Exo", sans-serif;
+    font-size: 24px;
+  }
+  #coach {
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
+    -ms-grid-rows: (auto)[3];
+        grid-template-rows: repeat(3, auto);
+    grid-gap: 1em;
+  }
+  #coach .coachs_card {
+    overflow: hidden;
+    width: 100%;
+    margin: 0;
+    height: auto;
+  }
+  #coach .coachs_card .coachs_card_img {
+    display: none;
+  }
+  #coach .coachs_card .coachs_card_info .coachs_card_info_player {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: auto;
+  }
+  #coach .coachs_card .coachs_card_info .coachs_card_info_player p {
+    font-size: 14px;
+    margin: 0;
+  }
+  #coach .coachs_card .coachs_card_info .coachs_card_info_player img {
+    height: 50%;
+  }
+  #coach .coachs_card .coachs_card_info .coachs_card_info_important p {
+    padding: 1px 10px;
+    border-radius: 10px;
+    margin: 5px;
+    font-size: 14px;
+  }
+  footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  footer .games {
+    margin-left: none;
+    margin-top: none;
+  }
+  footer .games ul {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1440px) {
+  .skills {
+    -ms-grid-columns: (20%)[4];
+        grid-template-columns: repeat(4, 20%);
+    grid-column-gap: 5em;
+  }
+}
+/*# sourceMappingURL=home.css.map */
