@@ -1,0 +1,37 @@
+    <div id="coach">
+{{#each coach}}
+{{log coach}}
+<div class="coachs_card">
+        <div class="coachs_card_img">
+            <img src="uploads/{{this.img}}" alt="">
+        </div>
+        <div class="coachs_card_info">
+            <div class="coachs_card_info_player">                   
+            <p> {{this.name}} {{this.ign}} {{this.surname}}  </p> 
+            <form action="/deletecoach/{{this._id}}?_method=DELETE" class="coachs_card_info_delete" method="POST">
+               <input type="hidden" name="_method" value="DELETE">
+               <button type="submit"><i style="color: red;" class="fas fa-2x fa-times-circle"></i></button></a><img src="" alt="">
+            </form> 
+            </div>
+            <div class="coachs_card_info_review"> {{this.description}}</div>
+            <div class="coachs_card_info_important">
+            <p>{{this.game}}</p> <p>${{this.price}}.00</p>
+            </div>
+    
+        </div>
+        
+        </div>
+{{/each}}
+</div>
+{{#if prev}}
+    <form action="/coachlist" method="POST">
+        <input type="number" name="page" value="{{prevPage}}">
+        <button type="submit">Prev</button>
+    </form>
+{{/if}}
+{{#if next}}
+    <form action="/coachlist" method="POST">
+        <input type="number" name="page" value="{{nextPage}}">
+        <button type="submit">Next</button>
+    </form>
+{{/if}}

@@ -1,0 +1,25 @@
+  <div class="coachs_page_banner"><p>Super smash bros brawl list of coachs</p></div>
+
+    <div id="coach">
+{{#each coach}}
+
+<div class="coachs_card">
+        <div class="coachs_card_img">
+            <img src="uploads/{{this.img}}" alt="">
+        </div>
+        <div class="coachs_card_info">
+            <div class="coachs_card_info_player">
+            <p> {{this.name}} {{this.ign}} {{this.surname}}  </p> <img src="" alt="">
+            </div>
+            <div class="coachs_card_info_review"> {{this.description}}</div>
+            <div class="coachs_card_info_important">
+            <p>{{this.game}}</p> <p>${{this.price}}.00</p>
+            </div>
+    
+        </div>
+        </div>
+
+        
+
+{{/each}}
+</div>

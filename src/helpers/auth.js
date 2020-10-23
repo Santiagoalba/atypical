@@ -8,4 +8,14 @@ helpers.isAuthenticated = (req, res, next) => {
   res.redirect('/');
 };
 
+helpers.isAdministrator = (req, res, next) => {
+  if(req.user){
+    if (req.user.isAdmin == true & req.isAuthenticated()) {
+      return next();
+    }
+  }
+  req.flash('error_msg', 'You are not an administrator');
+  res.redirect('/');
+};
+
 module.exports = helpers;

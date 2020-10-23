@@ -1,3 +1,4 @@
+const mongoosePaginate = require('mongoose-paginate-v2')
 const { Decimal128 } = require('bson')
 const { Schema, model } = require('mongoose')
 
@@ -15,16 +16,6 @@ const CoachSchema = new Schema ({
 }
 )
 
-// CoachSchema.virtual('imgPath').get(function() {
-//     if (this.img != null && this.imgType != null) {
-//       return console.log(`data:${this.imgType};charset=utf-8;base64,${this.img.toString('base64')}`)
-//     }
-//   })
-
-// CoachSchema.virtual('imglogoPath').get(function() {
-//     if (this.imglogo != null && this.imglogoType != null) {
-//       return `data:${this.imglogoType};charset=utf-8;base64,${this.imglogo.toString('base64')}`
-//     }
-//   })
+CoachSchema.plugin(mongoosePaginate)
 
 module.exports = model('Coach', CoachSchema)

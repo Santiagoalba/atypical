@@ -47,34 +47,104 @@ coachCtrl.addCoach = async (req, res) => {
   // }
 }
 
-
-
-coachCtrl.upload = async (req, res) => {
-   console.log(req.file)
-   console.log(req.file.originalname)
-   const coach = new Coach({
-    name: 'santip',
-    surname: 'albpa',
-    ign: 'manquitop',
-    description: 'mancasoide barbaro',
-    game: 'minecralul',
-    price: '20',
-    img: req.file.originalname
-   })
-   const newCoach = await coach.save()
-   res.send('works')
+coachCtrl.list = async (req, res) =>{
+  const coachs = await Coach.paginate({}, {lean: true, limit:10});
+  console.log(coachs,'coaches papa');
+  const next = coachs.hasNextPage;
+  console.log(next,'coaches papa');
+  const prev = coachs.hasPrevPage;
+  const nextPage = coachs.nextPage;
+  const prevPage = coachs.prevPage;
+  coach = coachs.docs;
+  // res.json(coach)   
+  res.render('coachs/coachlist', {coach, next, prev, nextPage, prevPage})
 }
 
+coachCtrl.pages = async (req, res) => {
+  const pageNumber = req.body.page;
+  console.log(req.body, 'numero de pag')
+  const coachs = await Coach.paginate({}, {lean: true, limit:10, page: pageNumber});
+  const next = coachs.hasNextPage;
+  const prev = coachs.hasPrevPage;
+  const nextPage = coachs.nextPage;
+  const prevPage = coachs.prevPage;
+  coach = coachs.docs;
+  res.render('coachs/coachlist', {coach, next, prev, nextPage, prevPage})
+}
+
+coachCtrl.deletecoach = async (req, res) =>{
+  console.log(req.params.id)
+  await Coach.findByIdAndDelete(req.params.id)
+  req.flash('success_msg', 'Coach deleted successfully')
+  res.redirect('/coachlist')
+}
+
+
 coachCtrl.renderValorant = async (req, res) =>{
-  const coach = await Coach.findOne({game: 'valorant'})
+  const coach = await Coach.find({game: 'valorant'}).limit(10).lean()
+  
   res.render('coachs/valorant', {coach})
 }
 
+coachCtrl.renderOverwatch = async (req, res) =>{
+  const coach = await Coach.find({game: 'overwatch'}).limit(10).lean()
+  
+  res.render('coachs/overwatch', {coach})
+}
+
+coachCtrl.renderSsb = async (req, res) =>{
+  const coach = await Coach.find({game: 'ssb'}).limit(10).lean()
+  
+  res.render('coachs/ssb', {coach})
+}
+
+coachCtrl.renderRocketLeague = async (req, res) =>{
+  const coach = await Coach.find({game: 'rocket league'}).limit(10).lean()
+  
+  res.render('coachs/rocket-league', {coach})
+}
+
+coachCtrl.renderDota2 = async (req, res) =>{
+  const coach = await Coach.find({game: 'dota2'}).limit(10).lean()
+  
+  res.render('coachs/dota2', {coach})
+}
+
+coachCtrl.renderStarcraft = async (req, res) =>{
+  const coach = await Coach.find({game: 'starcraft'}).limit(10).lean()
+  
+  res.render('coachs/starcraft', {coach})
+}
+
+coachCtrl.renderPubg = async (req, res) =>{
+  const coach = await Coach.find({game: 'pubg'}).limit(10).lean()
+  
+  res.render('coachs/pubg', {coach})
+}
+
 coachCtrl.renderLeague = async (req, res) =>{
-  const array = []
-  const coach = await Coach.findOne({game: 'league'})
-  array.push(coach)
-  res.render('coachs/league', {coachs: array})
+  const coach = await Coach.find({game: 'league'}).limit(10).lean()
+  res.render('coachs/league', {coach})
+}
+
+coachCtrl.renderOurCoachs = async (req, res) => {
+  const valorant_coach = await Coach.find({game: 'valorant'}).limit(3).lean()
+  const rocketLeague_coach = await Coach.find({game: 'rocket league'}).limit(3).lean()
+  const league_coach = await Coach.find({game: 'league'}).limit(3).lean()
+  const starcraft_coach = await Coach.find({game: 'starcraft'}).limit(3).lean()
+  const dota2_coach = await Coach.find({game: 'dota 2'}).limit(3).lean()
+  const ssb_coach = await Coach.find({game: 'ssb'}).limit(3).lean()
+  const overwatch_coach = await Coach.find({game: 'overwatch'}).limit(3).lean()
+  const pubg_coach = await Coach.find({game: 'pubg'}).limit(3).lean()
+  res.render('coachs/ourcoachs', { valorant_coach,
+                                   rocketLeague_coach,
+                                   league_coach,
+                                   starcraft_coach,
+                                   dota2_coach,
+                                   ssb_coach,
+                                   overwatch_coach,
+                                   pubg_coach
+                                  })
 }
 
 

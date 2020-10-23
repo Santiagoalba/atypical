@@ -3,7 +3,14 @@
 // const router = express.Router()
 const router = require("express").Router();
 // Controladores
-const { signup, login, logout, renderMyInfo, deleteAcc } = require('../controllers/users.controller')
+const { signup,
+        login,
+        logout,
+        renderMyInfo,
+        deleteAcc,
+        renderUpdateAcc,
+        updateAcc,
+     } = require('../controllers/users.controller')
 
 // Rutas
 
@@ -13,11 +20,15 @@ router.post('/signup', signup)
 
 router.post('/login', login)
 
-router.get('/logout', logout)
+router.get('/logout', isAuthenticated, logout)
 
 router.get('/my-info', isAuthenticated, renderMyInfo)
 
-router.delete('/deleteAcc/:id', deleteAcc)
+router.get('/updateAcc', isAuthenticated, renderUpdateAcc)
+
+router.put('/updateAcc', isAuthenticated, updateAcc)
+
+router.delete('/deleteAcc/:id', isAuthenticated, deleteAcc)
 
 
 

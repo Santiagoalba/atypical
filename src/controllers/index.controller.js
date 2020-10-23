@@ -5,7 +5,7 @@ const Sub = require('../models/sub')
 indexCtrl.renderIndex = async (req, res) => {
   // Find username to send to the view
  const username = searchUser(req.user)
-  
+ const admin = isAdmin(req.user)
   // Find coachs to render in the coachs section
   await Coach.find().limit(3)
   .then(documentos => {
@@ -24,7 +24,7 @@ indexCtrl.renderIndex = async (req, res) => {
     }
     
     res.render('index', {
-coachs: contexto.coachs, username}) 
+coachs: contexto.coachs, username, admin}) 
   })
 };
 
@@ -44,10 +44,21 @@ indexCtrl.subscribeNewsletter = (req, res) => {
 
 searchUser = (search) => {
   if(search){
-    return username = search.name
+    return username = search.name        
   } 
     return username = null
   }
+
+isAdmin = (user) => {
+  if (user){
+    console.log('en la funcion')
+    return user.isAdmin
+  } else {
+    return null
+  }
+} 
+
+ 
 
 
 module.exports = indexCtrl;

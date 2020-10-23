@@ -2,21 +2,28 @@
 </head>
 <body>
     <nav class="navbar">
-
-        <div class="navbar_logo">
-            <a href="/"><span>ATYPICAL</span></a>
+        <div class="burger">
+          <div class="line line1"></div>
+          <div class="line line2"></div>
+          <div class="line line3"></div>
         </div>
-        <div class="navbar_items">
-            <ul>
-                <li>Our Coachs</li>
-                <li class="games">Games
-                  <div class="dropdownGames">
+        <div class="navbar_logo">
+            <a href="/"><span class="normal_logo">ATYPICAL</span>
+            <span class="mobile_logo">A</span>
+            </a>
+        </div>
+        <div class="navbar_items items_list">
+            
+            <ul class="items">
+                <a href="/ourcoachs"><li class="list_item">Our Coachs</li></a>
+                <li class="games list_item">Games
+                  <div class="dropdownGames fadeOff">
 
                     <div class="dropdownGames_grid">
           
                       <div class="dropdownGames_grid_item">
-                        <a href="">
-                          <div>
+                        <a href="/coachs/league">
+                          <div class="item_image">
                             <img src="image/logos/lol.png" alt="">
                           </div>
                           <div>
@@ -26,8 +33,8 @@
                       </div>
               
                       <div class="dropdownGames_grid_item">
-                        <a href="">
-                          <div>
+                        <a href="/coachs/dota2">
+                          <div class='item_image'>
                             <img src="image/logos/dota2.png" alt="">
                           </div>
                           <div>
@@ -37,8 +44,8 @@
                       </div>
               
                       <div class="dropdownGames_grid_item"> 
-                        <a href="">
-                          <div>
+                        <a href="/coachs/rocket-league">
+                          <div class='item_image'>
                             <img src="image/logos/rl.png" alt="">
                           </div>
                           <div>
@@ -49,8 +56,8 @@
                       </div>
               
                       <div class="dropdownGames_grid_item">  
-                        <a href="">
-                          <div>
+                        <a href="/coachs/starcraft">
+                          <div class='item_image'>
                             <img src="image/logos/starcraft2.png" alt="">
                           </div>
                           <div>
@@ -61,8 +68,8 @@
                       </div>
               
                       <div class="dropdownGames_grid_item">  
-                        <a href="">
-                          <div>
+                        <a href="/coachs/ssb">
+                          <div class='item_image'>
                             <img src="image/logos/ssb.png" alt="">
                           </div>
                           <div>
@@ -72,8 +79,8 @@
                       </div>
               
                       <div class="dropdownGames_grid_item">  
-                        <a href="">
-                          <div>
+                        <a href="/coachs/valorant">
+                          <div class='item_image'>
                             <img src="image/logos/valorant.png" alt="">
                           </div>
                           <div>
@@ -83,8 +90,8 @@
                       </div>
               
                       <div class="dropdownGames_grid_item">  
-                        <a href="">
-                          <div>
+                        <a href="/coachs/overwatch">
+                          <div class='item_image'>
                             <img src="image/logos/overwatch.png" alt="">
                           </div>  
                           <div>
@@ -94,12 +101,12 @@
                       </div>  
               
                       <div class="dropdownGames_grid_item">  
-                        <a href="">
-                          <div>
+                        <a href="/coachs/pubg">
+                          <div class='item_image'>
                             <img src="image/logos/pubg.png" alt="">
                           </div>
-                          <div class="gameName">
-                            <p>Player U. Bgs</p>
+                          <div>
+                            <p class="gameName">Player U. Bgs</p>
                           </div>
                           
                         </a>
@@ -109,9 +116,10 @@
           
                   </div>
                 </li>
+
                 {{#if user}}
                 
-                <li class="user">{{username}}
+                <li class="user list_item">{{log app.locals.user}}
                   <div class="user_dropdownUser">
                     <ul>
                       <a href="/my-info">
@@ -125,10 +133,24 @@
                  </li> 
                 {{/if}}
                 {{#unless user}}
-                <li class="signIn" onclick="home.showPopUp()">Sign Up</li>
-                <li onclick="home.showPopUpLog()">Log In</li>
+                <li class="signIn list_item" onclick="home.showPopUp()">Sign Up</li>
+                <li class="list_item" onclick="home.showPopUpLog()">Log In</li>
                 {{/unless}}
                 <button class="navbar_cta">Choose your master!</button>
+                {{#if admin}}
+                <li class="admin_tab list_item">Admin tab
+                  <div class="admin_dropdownAdmin">
+                    <ul>
+                      <a href="/coachlist">
+                        <li>
+                          Coachs list
+                        </li>
+                      </a>
+                      <a href="/addcoach"><li>New coach</li></a>
+                    </ul>
+                  </div>
+                </li>
+                {{/if}}
             </ul>
 
             <!-- <div class="navbar_cta">
@@ -150,7 +172,7 @@
 
             <div class="signInForm_logo">ATYPICAL</div>
 
-            <form action="/signup" id="form" method="POST">
+            <form action="/signup" class="form" method="POST">
 
             <div class="signInForm_input">
               <input class="boxInput" type="text" name="name" placeholder="Name" id="nick" value="{{name}}">
@@ -174,7 +196,7 @@
             </div>
 
             </form>
-    
+            <div class="errorMessages"></div>
             <div class="account">
               <p>Already have an account? <span onclick="home.toLogIn()"> Log In</span> </p>
             </div>
@@ -196,14 +218,14 @@
 
             <div class="logInForm_logo">ATYPICAL</div>
 
-            <form action="/login" id="form" method="POST">
+            <form action="/login" class="formLogIn" method="POST">
 
             <div class="logInForm_input">
-              <input class="boxInput" type="text" name="name" placeholder="Name" id="nick" value="{{name}}">
+              <input class="boxInput logName" type="text" name="name" placeholder="Name" id="nick" value="{{name}}">
             </div>
               
             <div class="logInForm_input">
-              <input class="boxInput" type="password" name="password" placeholder="Password" id="pass">
+              <input class="boxInput logPass" type="password" name="password" placeholder="Password" id="pass">
             </div> 
 
             <div class="formButton">
@@ -211,6 +233,8 @@
             </div>
 
             </form>
+
+            <div class="errorMessagesLog"></div>
 
             <div class="accountLog">
               <p>Dont have an account? <span onclick="home.toSignUp()"> Sign Up</span> </p>
@@ -224,6 +248,80 @@
 
     </nav>
 
+     <div class="dropdownGamesMobile fadeOff">
+
+                    <div class="dropdownGames_grid">
+          
+                      <div class="dropdownGames_grid_item">
+                        <a href="/coachs/league">
+                          <div>
+                            <p class="gameName">League of Legends</p>
+                          </div>
+                        </a>
+                      </div>
+              
+                      <div class="dropdownGames_grid_item">
+                        <a href="/coachs/dota2">
+                          <div>
+                            <p class="gameName">Dota 2</p>
+                          </div>
+                        </a>
+                      </div>
+              
+                      <div class="dropdownGames_grid_item"> 
+                        <a href="/coachs/rocket-league">
+                          <div>
+                            <p class="gameName">Rocket League</p>
+                          </div>
+                          
+                        </a>
+                      </div>
+              
+                      <div class="dropdownGames_grid_item">  
+                        <a href="/coachs/starcraft">
+                          <div>
+                            <p class="gameName">Starcraft 2</p>
+                          </div>
+                          
+                        </a>
+                      </div>
+              
+                      <div class="dropdownGames_grid_item">  
+                        <a href="/coachs/ssb">
+                          <div>
+                            <p class="gameName">Super Smash Bros</p>
+                          </div>
+                        </a>
+                      </div>
+              
+                      <div class="dropdownGames_grid_item">  
+                        <a href="/coachs/valorant">
+                          <div>
+                            <p class="gameName">Valorant</p>
+                          </div>
+                        </a>
+                      </div>
+              
+                      <div class="dropdownGames_grid_item">  
+                        <a href="/coachs/overwatch"> 
+                          <div>
+                            <p class="gameName">Overwatch</p>
+                          </div>
+                        </a>
+                      </div>  
+              
+                      <div class="dropdownGames_grid_item">  
+                        <a href="/coachs/pubg">
+                          <div>
+                            <p class="gameName">Player U. Bgs</p>
+                          </div>
+                          
+                        </a>
+                      </div>
+              
+                      </div>
+     </div>
+
     {{#each errors}}
        <div class="validation_errors">
           <p>{{text}}</p>
@@ -231,18 +329,4 @@
               
     {{/each}}
 
-    <nav class="navMobile">
-
-      <div class="navMovile_logo">
-        <span>ATYPICAL</span>
-      </div>
-
-      <div class="navMobile_items">
-            
-          <a href="#"><img src="image/user.png" alt=""></a>
-          <a href="#"><img src="image/gamepad.png" alt=""></a>
-          <a href="#"><img src="image/user.png" alt=""></a>
-      
-     </div>
-
-    </nav>
+    

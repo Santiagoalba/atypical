@@ -7,4 +7,4 @@ FilePond.registerPlugin(
 
 FilePond.parse(document.body)
 
-console.log('hola')
+

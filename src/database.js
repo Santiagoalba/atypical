@@ -11,3 +11,5 @@ mongoose
   })
   .then((db) => console.log("Mongodb is connected to", db.connection.host))
   .catch((err) => console.error(err));
+
+  module.exports = MONGODB_URL

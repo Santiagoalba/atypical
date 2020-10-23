@@ -33,6 +33,10 @@ body{
             }
         }
 
+        .mobile_logo{
+            display: none;
+        }
+
     }
 
     .navbar_items{
@@ -66,6 +70,43 @@ body{
                 margin-left: 10px;
             }
 
+            .admin_tab{
+                position: absolute;
+                right: 0px;
+                margin-right: 10px;
+                height: inherit;
+
+                &:hover .admin_dropdownAdmin{
+                    overflow:visible;
+                }
+
+                .admin_dropdownAdmin{
+                    position: absolute;
+                    top: 100%;
+                    z-index: 10000;
+                    max-height: 0px;
+                    overflow: hidden;
+                    
+
+                    ul{
+                        display: flex;
+                        height: max-content;
+                        flex-direction: column;
+                        background-color: #27272b;
+
+                        a{
+                            height: 50px;
+                        }
+                    }
+                }
+            }
+            
+
+
+            // .fadeOff{
+            //     animation: fadeOff 0.7s forwards;
+            // }
+
             .games:hover  .dropdownGames{
                 // display: block;
                 animation-name: fadeIn;
@@ -75,13 +116,21 @@ body{
             }
 
 
-
             .user:hover  .user_dropdownUser{
 
                 animation-name: fadeIn;
                 animation-duration: 0.7s;
                 animation-fill-mode: forwards;
 
+
+            }
+            
+            .admin_tab:hover  .admin_dropdownAdmin{
+
+                animation-name: fadeIn;
+                animation-duration: 0.7s;
+                animation-fill-mode: forwards;
+                overflow: none;
 
             }
 
@@ -98,6 +147,20 @@ body{
 
                  }
             }
+            @keyframes fadeOff {
+                0% {
+                    
+                    opacity: 1;
+                    max-height: 100%;
+                    transform: translateY(0);
+                 }
+                 100% {
+                    opacity: 0;
+                    max-height: 0;
+                    transform: translateY(-20px);
+
+                 }
+            }
         }
 
         li{
@@ -109,6 +172,7 @@ body{
             justify-content: center;
             height: 100%;
             transition: transform 0.2s ease-in-out;
+            // animation: navTransitionOff 1s ease-in-out;
 
             &:hover{
 
@@ -125,6 +189,17 @@ body{
                     to{
                         background-color: white;
                         color: black;
+                    }
+                }
+
+                @keyframes navTransitionOff{
+                    from{
+                        background-color: white;
+                        color: black;
+                    }
+                    to{
+                        background-color: black;
+                        color: white;
                     }
                 }
 
@@ -156,7 +231,7 @@ body{
                             display: flex;
                             justify-content: center;
                             min-height: 195px;
-
+                            animation: uncolored 1s forwards;
                             a{
                                 width: 100%;
                                 display: flex;
@@ -180,17 +255,32 @@ body{
                                 }
 
                             }
+                            @keyframes uncolored {
+                                from{
+                                    filter: grayscale(0);
+                                    background-color: white;
+                                }
+
+                                to{
+                                    filter: grayscale(1);
+                                    
+                                    
+                                }
+
+                            }
 
                             .gameName{
                                 font-size: 18px;
                                 font-family: $main-font;
                                 color: black;
                                 display: none;
+                                margin: 0;
+                                text-align: center;
                             }
                         }
 
                         .dropdownGames_grid_item:hover .gameName{
-                            display: block;
+                            display: flex;
                         }
                     }
 
@@ -201,8 +291,7 @@ body{
 
             }
 
-
-
+            
 
 
             .user{
@@ -247,8 +336,23 @@ body{
 
         }
 
+.dropdownGamesMobile{
+    display: none;
+}
+
 
 .validation_errors{
+    background: #200122;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #6f0000, #200122);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #6f0000, #200122); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-family: $main-font;
+    font-size: 14px;
+    margin: 0;
+    padding: 10px;
+    color: white;
+}
+
+.error_msg{
     background: #200122;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #6f0000, #200122);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #6f0000, #200122); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -403,23 +507,26 @@ body{
     background: #0f0c29;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to top, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to top, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    p{
-        color:white;
-        margin: 0;
-        padding: 10px;
-    }
+    font-family: $main-font;
+    font-size: 14px;
+    margin: 0;
+    padding: 10px;
+    color: white;
 }
 
 .swiper-main{
-    // height: 300px;
+    
+    display: flex;
+    align-items: center;
     overflow: hidden;
+    min-height: 200px;
 
     .swiper-slide{
-
+        min-height: 200px;
         img{
             width: 100%;
             height: auto;
-
+            filter: brightness(0.5);
         }
     }
 
@@ -435,12 +542,14 @@ body{
         span{
             font-family: $logo-font;
             font-size: 22px;
+            color: white;
         }
 
         p{
             width: 50%;
             color: white;
             font-family: $main-font;
+        
         }
 
         h1{
@@ -486,8 +595,8 @@ body{
 
 .skills{
     display: grid;
-    grid-template-columns: repeat(4, 15%);
-    grid-column-gap: 10em;
+    grid-template-columns: repeat(4, 25%);
+    grid-column-gap: 1em;
     padding: 1em;
     margin-left: 60px;
     margin-right: 60px;
@@ -562,14 +671,6 @@ body{
 
     }
 
-    .effect{
-        width: 60%;
-        height: 0;
-        position: absolute;
-        border-right: 50px solid transparent;
-        border-bottom: 100px solid red;
-    }
-
     .coach_banner{
         background-color:#f1f1f1;
         font-family: $main-font;
@@ -581,6 +682,20 @@ body{
         }
     }
 
+.coachs_page_banner{
+    font-family: $main-font;
+    font-size: 24px;
+    color: black;
+}
+
+.title_coachs{
+    background-color: #f1f1f1;
+    font-size: 32px;
+    font-family: $main-font;
+    margin: 0;
+    padding-left: 20px;
+}
+
 #coach{
     display: grid;
     grid-template-columns: repeat(3, 30%);
@@ -588,7 +703,11 @@ body{
     padding: 50px 50px;
     justify-content: center;
     column-gap: 1em;
+    row-gap: 2em;
 
+    .title{
+        font-size: 36px;
+    }
     .coachs_card{
 
         border-radius: 20px;
@@ -605,20 +724,33 @@ body{
 
             .coachs_card_info_player{
                 display: flex;
-                font-size:20px ;
+                font-size:12px ;
                 font-family:$main-font;
-                justify-content: center;
                 background-color: #27272b;
+                justify-content: space-around;
+                align-items: center;
+                height: 25%;
                 p{
                     margin-left: 10px;
                     color: white;
                 }
 
             }
+            
+            .coachs_card_info_delete{
+                
+            
+
+                button{
+                    background-color: #27272b;
+                    border: none;
+                    cursor: pointer;
+                }
+            }
 
             .coachs_card_info_review{
                 font-family: $main-font;
-                font-size: 12px;
+                font-size: 11px;
                 height: 50%;
                 display: flex;
                 align-items: center;
@@ -627,33 +759,39 @@ body{
             }
 
             .coachs_card_info_important{
-                font-size: 16px;
+                font-size: 13px;
                 display: flex;
                 justify-content: space-between;
                 font-family: $main-font;
                 background-color: #27272b;
                 padding: 0 10px;
+                height: 25%;
 
                 p{
                     background-color: #dd5126;
                     color: white;
-                    padding: 5px
-
+                    padding: 12px;
+                    display: flex;
+                    align-items: center;
                 }
             }
+
         }
 
         .coachs_card_img{
+            width: 120px;
 
             img{
-                height: 200px;
-                width: 100px;
+                height: inherit;
+                width: inherit;
+                object-fit: cover;
 
             }
         }
     }
 
 }
+
 
     .swiper-container {
 
@@ -666,7 +804,7 @@ body{
 
         .graph{
             width: 80%;
-            position: absolute;
+            position: absolute;;
             z-index: 1;
         }
       }
@@ -687,6 +825,7 @@ body{
 
             width: 50%;
             position: absolute;
+            left: 20px;
             height: 100%;
             display: flex;
             flex-direction: column;
@@ -704,7 +843,7 @@ body{
 
             img{
                 z-index: 2;
-                margin: 50px 0;
+                margin: 40px 0;
             }
             a{
 
@@ -764,107 +903,173 @@ body{
 
     }
 
-    footer{
 
-        display: grid;
-        grid-template-rows: 80px 300px;
-        grid-template-columns: 1fr 1fr 1fr;
-        background-color: black;
-        color: white;
-
-
-        .logo{
-            grid-column: 1/4;
-            grid-row: 1/2;
-            justify-self: center;
-            align-self: center;
-            font-family: $logo-font;
-            font-size: 36px;
-
-        }
-
-        .contact{
-            grid-column: 1/2;
-            grid-row: 2/3;
-            justify-self: center;
-            font-family: $main-font;
-            font-size: 16px;
-        }
-
-        .games{
-            grid-column: 2/3;
-            grid-row: 2/3;
-            justify-self: center;
-            margin-top: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-size: 18px;
-            font-family: $main-font;
-            justify-self: self-start;
-            align-items: flex-start;
-            margin-left: 100px;
-            margin-top: 20px;
-            ul{
-               list-style: none;
-               padding: 0;
-
-               li{
-                   font-size: 16px;
-               }
-            }
-        }
-
-        .socials{
-
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-
-            .socials_media{
-                display: flex;
-                justify-content: center;
-
-                a{
-                    margin: 0 20px
-                }
-            }
-
-
+    .newsletter_container{
+        filter: invert(1);
+        margin-top: 30px;
+        height: 200px;
+        background-image: url('../image/banner_newsletter.jpg');
+        background-size: cover;
+        
         .socials_newsletter{
-            grid-column: 3/4;
-            grid-row: 2/3;
-            justify-self: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
             font-family: $main-font;
-            font-size: 16px;
+            color: blue;
+            font-size: 18px;
 
             p{
                 display: flex;
                 justify-content: center;
+                margin: 0;
+
+            }
+            
+            .subtitle{
+                font-size: 14px;
+                color: white;
+                margin-top: 5px;
+                margin-bottom: 20px;
             }
 
             form{
                 display: flex;
-                justify-content: space-around;
+                justify-content: center;
+                width: 100%;
 
                 input{
                     padding: 7px 5px;
-                    margin-bottom: 10px;
-                    width: 60%;
+                    border: 2px solid black;
+                    font-style: $main-font;
+                    margin-right: 10px;
+                    width: 25%;
+                    height: 5px;
                 }
 
                 button{
-                    margin-bottom: 10px;
+                    
                     background-color: #dd5126; ;
                     color: black;
                     font-family: $main-font;
-                    font-size: 20px;
+                    font-size: 14px;
                     font-weight: bold;
+                    border: none;
                 }
             }
         }
 
+
     }
+
+    .pagination_links{
+        height: 20px;
+        border: 1px solid black;
+        background-color: orangered;
+        color: black;
+    }
+
+
+    footer{
+
+        filter: invert(1);
+
+        .footer_grid{
+
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            background-color: rgba(245, 238, 238, 0.986);
+            padding: 40px 30px;
+        
+            
+        }
+
+        .logo{
+            font-family: $logo-font;
+            font-size: 28px;
+            font-weight: bold;
+            height: 20%;
+            width: 83%;
+            cursor: pointer;
+            filter: opacity(0.5);
+
+            &:hover{
+                animation: logoanim 0.2s ease-in-out forwards;
+            }
+
+            @keyframes logoanim {
+                from{
+                    filter: opacity(0.5);
+                }
+                to{
+                    filter: opacity(1);
+                    transform: scale(1.1) translateY(4%) translateX(3%);
+                    
+                }
+                
+            }
+        }
+
+        span{
+            font-size: 16px;
+            font-weight: 700;
+        }
+        .games{
+            
+            padding: 0 50px;
+
+            ul{
+            
+                list-style: none;
+                columns: 2;
+                padding: 0;
+                margin: 5px 0;
+
+                li{
+                    font-size: 14px;
+                    color:grey;
+                    line-height: 25px;
+                    letter-spacing: 2px;
+                    cursor: pointer;
+                    &:hover{
+
+                        animation: slideli 0.5s ease-in-out forwards;
+                    }
+
+                    @keyframes slideli {
+                        from{
+
+                        }
+                        to{
+                            transform: translateX(3%);
+                            color: black;
+                        }
+                        
+                    }
+                }
+            }
+        }
+
+        .socials_media{
+            display: flex;
+            margin-top: 30px;
+            a{
+                width: 50px;
+            }
+
+            i{
+                color: gray;
+                cursor: pointer;
+
+                &:hover{
+                    color: black;
+                }
+            }
+        }
+
     }
 
 
@@ -994,38 +1199,520 @@ body{
 
 }
 
-
-
-
 .show{
     display: flex;
 }
 
-
-@media only screen and (max-width:600px){
-
-    .navbar{
-        display: none;
-    }
-
-    .navMobile{
+.my_info{
+    display: flex;
+    min-height: 300px;
+    .my_info_user{
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
+        padding-left: 20px;
+        background-color: white;
+        width: 100%;
         align-items: center;
-        padding: 0 10px;
-        color: white;
-        background-color: black;
-
-
-        span{
-            font-family: $logo-font;
-            font-size: 24px;
+        justify-content: center;
+        p{
+            font-family: $main-font;
+            font-size:24px;
+            margin: 0px;
+        }
+    
+        a{
+            
+            button{
+                margin-bottom: 10px;
+                background-color: #dd5126; ;
+                color: black;
+                font-family: $main-font;
+                font-size: 20px;
+                font-weight: bold;
+            }
         }
 
+        form{
+
+            button{
+                margin-bottom: 10px;
+                background-color: #dd5126; ;
+                color: black;
+                font-family: $main-font;
+                font-size: 20px;
+                font-weight: bold;
+            }
+        }
+    }
+
+}
+
+.form_container{
+
+    display: flex;
+    justify-content: center;
+
+    .atypicalForm{
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        margin: 50px 0;
+        border: 1px solid;
+        width: 35%;
+        padding: 20px 0;
+        border-radius: 20px;
+        
+        .atypicalForm_title{
+            font-family: $logo-font;
+            font-size: 30px;
+        }
+    
+        .formulario{
+            
+            .atypicalForm_input{
+                
+                display: flex;
+                justify-content: center;
+                
+                input{
+                    
+                    padding: 8px 0 6px 7px;
+                    margin: 10px 0;
+                    font-size: 14px;
+                    font-family: $main-font;
+                    width: 230px;
+                }
+                
+                label{
+                    font-size: 14px;
+                    font-family: $main-font;
+                    margin-top: 10px;
+                }
+            }
+            
+            .img_input{
+                
+            }
+            
+            button{
+                margin-bottom: 10px;
+                // background-color: #dd5126; 
+                background-color: black; 
+                color: white;
+                font-family: $main-font;
+                font-size: 20px;
+                font-weight: bold;
+                width: 100%;
+                margin-top:20px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:700px){
+    .swiper-main{
+         
+        .swiper-text{
+            
+            .sliderLine{
+                display: none;
+            }
+
+            p{
+                display: none;
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width:1024px){
+
+
+    .navbar{
+
+        .burger{
+            position: absolute;
+            right: 10px;
+            z-index: 100;
+            top: 20px;
+
+            .line{
+                border: 3px white solid;
+                margin: 5px;
+                width: 30px;
+            }
+        }
+        
+
+
+        .navbar_items{
+            height: 100vh;
+            position: absolute;
+            z-index: 3;
+            left: -100%;
+            top: 83px;
+            
+            ul{ 
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                
+                :nth-child(1) {
+                    animation-delay: 0s;
+                }
+                :nth-child(2) {
+                    animation-delay: 0.2s;
+                }
+                :nth-child(3) {
+                    animation-delay: 0.4s;
+                }
+                :nth-child(4) {
+                    animation-delay: 0.6s;
+                }
+
+                .admin_tab{
+                    position: relative;
+                    margin: 0;
+                }
+                
+
+                li{
+                    width: 100vw;
+                    
+                    
+                    .dropdownGames{
+                        
+                        top: 0px;
+                        overflow: scroll;
+                        display: none;
+
+                            .dropdownGames_grid{
+                                
+                                display: flex;
+                                flex-direction: column;
+                    
+                                .dropdownGames_grid_item{
+                                    
+                                    min-height: initial;
+                                    margin: 0;
+                                    padding: 0;
+
+                                    a{
+                                        .item_image{
+                                            display: none;
+                                        }
+                                    }
+                                    
+                                    animation: noFilter 0s forwards;
+    
+                                    .gameName{
+                                        color: white;
+                                        display: block;
+                                        margin-top: 10px;
+                                        font-size: 18px;
+                                    }
+                                    
+                                }
+                            }
+                        }
+                        
+    
+                        
+    
+                        @keyframes noFilter {
+                            0%{
+                                filter: grayscale(1);
+                            }
+                            100%{
+                                filter: grayscale(0);
+                            }
+                        }
+                       
+                    }
+
+                    
+
+                
+            }
+
+            button{
+                display: none;
+            }
+        }
+    }
+
+    .dropdownGamesMobile{
+                        
+        font-size: 18px;
+        position: absolute;
+        display: none;
+        width: 100%;
+        text-align: center;
+        background-color: gray;
+        z-index: 50000;
+
+        a{
+            text-decoration: none;
+            font-family: $main-font;
+            color: white;
+        }
+
+        .gameName{
+
+            font-size: 18px;
+
+        }
+    }
+
+    .active{
+        animation: fromLeft 1s ease-in-out forwards;
+    }
+
+    .inactive{
+        animation: goLeft 1s ease-in-out forwards;
+    }
+
+    @keyframes goLeft {
+        0%{
+           transform: translateX(0); 
+        }
+        100%{
+           transform: translateX(-100%); 
+        }
+        
+    }
+    @keyframes fromLeft {
+        0%{
+           left: -100%;
+        }
+        100%{
+           left: 0; 
+        }
+        
+    }
+    
+    .linksAnimation{
+        animation: leftLinks 1s ease-in-out;
+    }
+
+    @keyframes leftLinks {
+        0%{
+            transform: translateX(-100%);
+        }
+        25%{
+            transform: translateX(20%);
+        }
+        50%{
+            transform: translateX(-10%);
+        }
+        100%{
+            transform: translateX(0%);
+        }
+    }
+
+    .displayNone{
+        display:none;
+    }
+    
+
+    .rotateLine1{
+        animation: rotate1 0.5s ease-in forwards;
+    }
+    
+    @keyframes rotate1 {
+        from{
+    
+        }
+        to{
+            transform: translateY(7px) rotate(45deg);
+            border-color: white;
+            
+        }
+    }
+    
+    .rotateLine3{
+        animation: rotate3 0.5s ease-in forwards;
+    }
+    
+    @keyframes rotate3 {
+        from{
+    
+        }
+        to{
+            transform: translateY(-3px) rotate(-45deg);
+            border-color: white;
+        }
     }
 
     .skills{
-        grid-template-columns: 100%;
+        margin: 0;
+        grid-template-columns: repeat(4, 24%);
+    }
+
+    
+
+   
+
+
+    #coach{
+        display: grid;
+        grid-template-columns: repeat(2, 45%);
+        column-gap: 3em;
+
+        .coachs_card{
+            border-radius: 0px;
+
+            .coachs_card_info{
+                
+                .coachs_card_info_important{
+        
+                    p{
+                        padding: 2px;
+                    }
+                }
+            }
+            
+        }
+
+
+    }
+
+    .swiper-games{
+
+        .swiper-wrapper{
+
+            .swiper-slide{
+
+                .swiper-slide-info{
+                    display: flex;
+                    left: 0;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                    padding: 0;
+
+                    img{
+                       width: 50%;
+                       margin: 0;
+                    }
+
+                    p{
+                        margin-top: 40px;
+                        margin-bottom: 30px;
+                        text-align: center;
+                    }
+
+                    a{
+                        margin: 0;
+
+                        button{
+                            
+                        }
+                    }
+                }
+
+                .swiper-slide-base{
+
+                    #trazado{
+                        display: none;
+                    }
+
+                    #background{
+                        top: 0;
+                        right: 0;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    .form_container{
+
+        .atypicalForm{
+            width: 55%;
+        }
+    }
+
+}
+
+@media only screen and (max-width:600px){
+
+
+    .navbar{
+
+        min-height: 65px;
+        justify-content: center;
+        align-items: start;
+
+
+        .burger{
+            top: 15px;
+            right: 8px;
+
+            .line{
+                border: 2px white solid;
+                margin: 6px;
+            }
+        }
+
+        .navbar_logo{
+            margin: 0;
+            margin-left: 30px;
+
+            a{
+                span{
+                    font-size: 29px;
+                }
+            }
+        }
+
+        .navbar_items{
+            height: initial;
+            top: 65px;
+            .items{
+                height: max-content;
+
+                li{
+                    height: 60px;
+                }
+            }
+        }
+    }
+                                
+    
+
+    .stamp{
+
+        p{
+            font-size: 26px;
+        }
+    }
+
+    .skills{
+        grid-template-columns: repeat(2, 45%);
+        grid-column-gap:0;
+        margin: 0;
+
+        .skills_card{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+
+            h1{
+                text-align: center;
+                font-size: 18px;
+            }
+            
+            p{
+                display: none;
+                text-align: center;
+            }
+        }
+
     }
 
     .coach_banner{
@@ -1043,80 +1730,179 @@ body{
     }
 
     #coach{
-        grid-template-columns: 100%;
-        grid-template-rows: repeat(3 , auto);
-        grid-gap: 1em;
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        padding-bottom: 40px;
 
 
         .coachs_card{
             overflow: hidden;
-            width: 100%;
+            width: 60%;
+            height: 150px;
             margin: 0;
-            height: auto;
 
-            .coachs_card_img{
-                display: none;
-            }
+        .coachs_card_img{
+            width: 100px;
+        }
 
             .coachs_card_info{
+                position: relative;
 
                 .coachs_card_info_player{
 
                     align-items: center;
-                    height: auto;
+                    height: 25%;
                     p{
-                        font-size: 14px;
+                        font-size: 12px;
                         margin: 0;
+                        align-items: center;
                     }
 
                     img{
-                        height: 50%;
+                        height: 50px;
+                    }
+                    
+                    form{
+                        position: absolute;
+                        right: 0px;
+                        top: -25px;
                     }
                 }
 
                 .coachs_card_info_review{
-
+                    height: 50%;
                 }
 
                 .coachs_card_info_important{
-
+                    height: 25%;
                     p{
-
-                        padding: 1px 10px;
-                        border-radius: 10px;
                         margin: 5px;
-                        font-size: 14px;
+                        align-self: center;
+                        font-size: 12px;                        
                     }
                 }
             }
         }
     }
 
+    .swiper-games{
+
+        .swiper-wrapper{
+
+            .swiper-slide{
+
+
+                .swiper-slide-info{
+               
+                    img{
+                        width: 80%;
+                    }
+        
+                    p{
+                        font-size: 16px;
+                    }
+        
+                    a{
+                        
+        
+                        button{
+                            padding: none;
+                        }
+                    }
+        
+        
+                }
+            }
+
+        }
+            
+        }
+
+    .form_container{
+
+        .atypicalForm{
+            width: 85%;
+        }
+    }
 
     footer{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        
+        span{
+            
+        }
+
+        .logo{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            display: none;
+        }
 
         .games{
+            padding: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
-            margin-left: none;
-            margin-top: none;
+        .socials_media{
+            flex-direction: row;
+        }
 
-            span{
+       .footer_grid{
+            display: grid;
+            grid-template-columns: 70% 30%;
 
-            }
+       }
 
-            ul{
-                display: none;
-            }
+    }
+ 
+}
+
+
+.tarjetas_container{
+
+    height: 500px;
+    display: flex;
+    justify-content: space-around;
+
+    .tarjeta{
+        display: flex;
+        height:200px;
+        border: 1px solid blue;
+    }
+    
+    .tarjeta_img{
+        height: inherit;
+        width: 150px;
+        overflow: hidden;
+
+        img{
+            height: inherit;
+            width: inherit;
+            object-fit: cover;
+        }
+    }
+
+}   
+
+@media only screen and( max-width:650px ) {
+
+
+    footer{
+
+        .socials_media{
+            flex-direction: column;
         }
     }
 }
 
-@media only screen and (max-width:1440px){
-    .skills{
-        grid-template-columns: repeat(4, 20%);
-        grid-column-gap: 5em;
-    }
+
+
+.displayBlock{
+    display: block;
 }

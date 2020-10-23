@@ -1,6 +1,20 @@
-<p>My info page</p>
+
+<div class="my_info">
+
+<div class="my_info_user">
+
+<p class="my_info_user_title">Hello {{username}}</p>
+
+<p class="my_info_user_">{{email}}</p>
+
+<a href="/updateAcc"><button>Update my info</button></a>
+
 
 <form action="/deleteAcc/{{_id}}?_method=DELETE" method="POST">
     <input type="hidden" name="_method" value="DELETE">
     <button type="submit" class="delete_account">Delete my account</button>
 </form>
+
+</div>
+
+</div>

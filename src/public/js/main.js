@@ -76,17 +76,14 @@ home = {
     });
     },
     clickOutside2(){
-        let abc = document.querySelector('.signInPopUp')
+        let abc = document.querySelector('.signInPopUp');
         abc.addEventListener('click', function(e){ 
-        if (document.querySelector('.signInForm').contains(e.target)){
-        console.log("adentro") 
-    } else{ 
-        home.hidePopUp()
-        // Clicked outside the box
-        console.log("afuera")
-        } 
+        if (!(document.querySelector('.signInForm').contains(e.target))){
+        console.log("afuera", e);
+        home.hidePopUp();
+        }
     });
-    },
+},
     toLogIn(){
         document.querySelector(".logInPopUp").setAttribute("class", "logInPopUp show")
         home.hidePopUp()
@@ -95,75 +92,95 @@ home = {
     toSignUp(){
         document.querySelector(".signInPopUp").setAttribute("class", "signInPopUp show")
         home.hidePopUpLog()
-    },
-    
+    },    
 
 }
 
 home.clickOutside()
 home.clickOutside2()
 
+    const nick = document.getElementById('nick')
+    const password = document.getElementById('password')
+    const password2 = document.getElementById('password2')
+    const email = document.getElementById('email')
+    const form = document.querySelector('.form')
+    // const errorElement = document.querySelector('.errorMessages')
+    const errorElement = $('.errorMessages')
 
-const nick = document.getElementById('nick')
-const password = document.getElementById('password')
-const password2 = document.getElementById('password2')
-const email = document.getElementById('email')
-const form = document.getElementById('form')
-const errorElement = document.getElementById('error')
+    form.addEventListener('submit', (e) => {
+        errorElement.html( '' )
+        let messages = []
+        const nameRegExp = /[A-Za-z]{3,20}/
+        const passRegExp = /^[a-zA-Z]\w{3,14}$/
+        if (nick.value === '' || nick.value == null) {
+          messages.push('Name is required')
+        }
+        if (!(nameRegExp.test(nick.value))) {
+          messages.push('Name should only contain letters and be 3-20 characters long')
+        }
 
-// form.addEventListener('submit', (e) => {
-//   let messages = []
-//   if (nick.value === '' || nick.value == null) {
-//     messages.push('Nick is required')
-//   }
-
-//   if (password.value.length <= 6) {
-//     messages.push('Password must be longer than 6 characters')
-//   }
-
-//   if (password.value.length >= 20) {
-//     messages.push('Password must be less than 20 characters')
-//   }
-
-//   if (/^[a-zA-Z0-9- ]*$/.test(password.value) === false) {
-//       messages.push('Password must only contain numbers and letters')
-//   }
-
-//   if (password.value === 'password') {
-//     messages.push('Password cannot be password')
-//   }
-
-//   if (password2.value !== password.value) {
-//       messages.push('Repeat password was not the same as password')
-//   }
-
-//   if (messages.length > 0) {
-//     e.preventDefault()
-//     errorElement.innerText = messages.join(', ')
-//   }
-// })
+        if (!(passRegExp.test(password.value))) {
+            messages.push('Contraseña invalida')
+        }
 
 
-newsSubscriber = document.getElementById("newsletter")
-newsEmail = document.getElementById("newsletterEmail")
+        // if (password.value < 7) {
+        //     messages.push('Password should have 7-14 characters')
+        // }
+      
+        // if (/^[a-zA-Z0-9- ]*$/.test(password.value) === false) {
+        //     messages.push('Password must only contain numbers and letters')
+        // }
+      
+        if (password.value === 'password') {
+          messages.push('Password cannot be password')
+        }
+      
+        if (password2.value !== password.value) {
+            messages.push('Repeat password was not the same as password')
+        }
+        console.log(messages, 'mensajes')
+        if (messages.length > 0) {
+          e.preventDefault()
+        //   errorElement.classList.add('validation_errors')
+          errorElement.addClass('validation_errors')
+          messages.forEach(message =>{
+               errorElement.html( errorElement.html() + `<div>${message}</div>` ) 
+            //   errorElement.innerHTML = errorElement.innerHTML +`<div>${message}</div>` 
+          })
+         
+          console.log('fail')
+        }
+      })
 
-let subscribedNews = [
-    "santiago@gmail.com",
-    "pedro@gmail.com",
-]
+      const logName = $('.logName')
+      const logPass = $('.logPass')
+      const logForm = $('.formLogIn')
+      const errorDiv = $('.errorMessagesLog')
 
+      logForm.on('click', (e) => {
+          errorDiv.innerHTML = ''
+            let messages = []
+            const nameRegExp = /[A-Za-z]{3,20}/
+            const passRegExp = /^[a-zA-Z]\w{3,14}$/
+            if (logName.value === '' || nick.value == null) {
+            messages.push('Name is required')
+            }
+            // if (!(nameRegExp.test(logName.value))) {
+            // messages.push('Name should only contain letters and be 3-20 characters long')
+            // }
 
-newsSubscriber.addEventListener('submit', () => {
-    
-    subscribedNews.push(newsEmail.value)
-    console.log(subscribedNews, "puto")
+            // if (!(passRegExp.test(logPass.value))) {
+            //     messages.push('Contraseña invalida')
+            // }
 
-})
-
-console.log(subscribedNews, "hola")
-
-
-
+            if(messages.length > 0) {
+                e.preventDefault()
+                messages.forEach(message, () => {
+                    errorDiv.html( errorDiv.html() + `<div>${message}</div>` )
+                })
+            }
+      })
 
 
 
@@ -242,7 +259,7 @@ let coachsData = [
 //     let coachs = document.querySelector(".coachs")
 //     console.log(coachs)
 
-//     document.getElementById("coach").innerHTML =  `
+    // document.getElementById("coach").innerHTML =  `
 //         ${coachsData.map(function(coach){
 //         return `
 //         <div class="coachs_card">
@@ -279,51 +296,102 @@ displayArray = [];
 //     }
 
 
-    for (let index = 0; index < 3; index++) {
+    // for (let index = 0; index < 3; index++) {
             
-        let addCoach = coachsData[getRandomInt(coachsData.length)]
-            if (displayArray.map(function( coach){
-                coach.id 
-            })!== addCoach.id) {
-                console.log(addCoach.id, coach)
-                displayArray.push(addCoach)
-            } else {
-                index--
-            }
+    //     let addCoach = coachsData[getRandomInt(coachsData.length)]
+    //         if (displayArray.map(function( coach){
+    //             coach.id 
+    //         })!== addCoach.id) {
+    //             console.log(addCoach.id, coach)
+    //             displayArray.push(addCoach)
+    //         } else {
+    //             index--
+    //         }
             
             
-        }
+    //     }
     
     
     
 
-    document.getElementById("coach").innerHTML =  `
-        ${displayArray.map(function(coach){
-        return `
-        <div class="coachs_card">
-        <div class="coachs_card_img">
-            <img src="${coach.img}" alt="">
-        </div>
-        <div class="coachs_card_info">
-            <div class="coachs_card_info_player">
-            <p> ${coach.name} "${coach.ign}" ${coach.surname}  </p> <img src="${coach.logo}" alt="">
-            </div>
-            <div class="coachs_card_info_review"> ${coach.review}</div>
-            <div class="coachs_card_info_important">
-            <p>${coach.game}</p> <p>${coach.price}</p>
-            </div>
+    // document.getElementById("coach").innerHTML =  `
+    //     ${displayArray.map(function(coach){
+    //     return `
+    //     <div class="coachs_card">
+    //     <div class="coachs_card_img">
+    //         <img src="${coach.img}" alt="">
+    //     </div>
+    //     <div class="coachs_card_info">
+    //         <div class="coachs_card_info_player">
+    //         <p> ${coach.name} "${coach.ign}" ${coach.surname}  </p> <img src="${coach.logo}" alt="">
+    //         </div>
+    //         <div class="coachs_card_info_review"> ${coach.review}</div>
+    //         <div class="coachs_card_info_important">
+    //         <p>${coach.game}</p> <p>${coach.price}</p>
+    //         </div>
     
-        </div>
-        </div>
-        `
+    //     </div>
+    //     </div>
+    //     `
 
-        }).join('')}
-    `
-
-
-    
+    //     }).join('')}
+    // `
 
 
     
+    const burger = document.querySelector('.burger');
+    console.log(burger, 'hamburguesa');
+    const itemsList = document.querySelector('.items_list');
+    console.log(itemsList, 'items navbar');
+    const listItem = document.querySelectorAll('.list_item');
+    console.log(listItem);
+    const line1 = document.querySelector('.line1');
+    const line2 = document.querySelector('.line2');
+    const line3 = document.querySelector('.line3');
+    const dropMob = document.querySelector('.dropdownGamesMobile')
+    
+    burger.addEventListener('click', () => {
+        itemsList.classList.toggle('active');
+        // itemsList.classList.toggle('items_list') 
+        // listItem.forEach((item,index) => {
+        //     item.style.animation =  `leftLinks 2s ease-in-out ${index / 9}s`
+        // })
+        listItem.forEach((item,index) => {    
+            item.classList.toggle('linksAnimation');
+            });
+        line1.classList.toggle('rotateLine1');
+        line2.classList.toggle('displayNone');
+        line3.classList.toggle('rotateLine3');
+    });
 
-      
+    let intViewportWidth = window.innerWidth;
+    console.log( intViewportWidth, 'height')
+    if( intViewportWidth < 1025){
+        $('.games').on('click', () => {
+            console.log('clicked')
+            $('.dropdownGamesMobile').slideDown(300);
+            $('.navbar_items').toggleClass('active');
+            $('.line1').toggleClass('rotateLine1');
+            $('.line2').toggleClass('displayNone');
+            $('.line3').toggleClass('rotateLine3');
+        })
+    }
+
+    $('.burger').on('click', () => {
+        $('.dropdownGamesMobile').slideUp(300)
+    })
+
+    
+        let dropMobile = $('.dropdownGamesMobile')
+        dropMobile.on('click', function(e){ 
+        if ($.contains( e.target, '.dropdownGamesMobile' )){
+        console.log("adentro") 
+    } else{ 
+        $('.dropdownGamesMobile').slideUp(300).removeClass('displayBlock')
+        // Clicked outside the box
+        console.log("afuera")
+        } 
+    });
+    
+
+    

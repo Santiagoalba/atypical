@@ -9,8 +9,6 @@ require('./config/passport')
 const methodOverride = require('method-override')
 const multer = require('multer')
 
-
-
 // Settings
 app.set('port' , process.env.PORT || 4000)
 app.set('views' , path.join( __dirname, 'views'))
@@ -39,6 +37,7 @@ app.use(multer({
 
 app.use(express.urlencoded({extended: false}));
 app.use(methodOverride('_method'))
+// app.use(require('json-middleware').middleware());
 app.use(session({
     secret: 'secret',
     saveUninitialized: true,
@@ -54,13 +53,14 @@ app.use((req, res, next) => {
     res.locals.error_msg = req.flash('error_msg');
     res.locals.error = req.flash('error');
     res.locals.success = req.flash('success');
-    res.locals.user = req.user || null;
+    app.locals.user = req.user || null;
     next();
   });
 
 app.set('view engine', 'hbs')
 // Public
 app.use(express.static(path.join(__dirname, 'public')))
+app.use('/coachs', express.static(path.join(__dirname, 'public')))
 // Routes
 app.use(require('./routes/index.routes'))
 app.use(require('./routes/users.routes'))

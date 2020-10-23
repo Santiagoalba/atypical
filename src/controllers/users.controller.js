@@ -9,13 +9,16 @@ console.log(req.body, 'si señores')
 let errors = [];
   const { name, email, password, password2 } = req.body;
   const nameRegExp = /^([a-zA-Z0-9])+$/
-  const passRegExp = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{7,14}$/
+  // const passRegExp = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{7,14}$/
   if(!(nameRegExp.test(name))){
     errors.push({text: "Username must be 4-13 alphanumeric characters"})
   }
-  if (!(passRegExp.test(password))){
-    errors.push({text: "Password must be 7-14 characters long, have 1 upper,lower, and numeric character"})
+  if(password.length < 7) {
+    errors.push({ text: "Password should be 7 characters or more"})
   }
+  // if (!(passRegExp.test(password))){
+  //   errors.push({text: "Password must be 7-14 characters long, have 1 upper,lower, and numeric character"})
+  // }
   if (password != password2) {
     errors.push({ text: "Passwords do not match." });
   }
@@ -61,7 +64,8 @@ userCtrl.logout = (req, res) => {
 
 userCtrl.renderMyInfo = (req, res) => {
   const username = searchUser(req.user)
-  res.render('users/my-info', {username} )
+  const {email} = req.user
+  res.render('users/my-info', {username, email} )
 }
 
 userCtrl.deleteAcc = async (req, res) => {
@@ -69,6 +73,35 @@ userCtrl.deleteAcc = async (req, res) => {
   req.flash("success_msg", "User Deleted Successfully");
   res.redirect("/");
 };
+
+userCtrl.renderUpdateAcc = async (req, res) => {
+  const username = req.user.name
+  res.render('users/update-acc', {username})
+}
+
+userCtrl.updateAcc = async (req, res) => {
+  const username = req.user.name
+  const {name, email} = req.body
+  const errors = [];
+  if (!name) {
+    errors.push({ text: "Please Write a name." });
+  }
+  if (!email) {
+    errors.push({ text: "Please Write an email" });
+  }
+  if (errors.length > 0) {
+    res.render("users/update-acc", {
+      errors,
+      name,
+      email,
+      username,
+    })
+  }else{   
+    await User.findOneAndUpdate(req.params.id, {name, email})
+    req.flash("success_msg", "User Updated Successfully")
+    res.redirect('/my-info')
+}
+}
 
 
 searchUser = (search) => {
