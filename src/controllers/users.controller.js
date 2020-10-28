@@ -1,5 +1,4 @@
 const userCtrl = {}
-const Joi = require('joi')
 const User = require('../models/User')
 const passport = require('passport')
 

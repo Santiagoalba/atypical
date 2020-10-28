@@ -340,6 +340,10 @@ body{
     display: none;
 }
 
+.user_dropdownUserMobile{
+    display: none;
+}
+
 
 .validation_errors{
     background: #200122;  /* fallback for old browsers */
@@ -429,6 +433,7 @@ body{
     padding: 10px 0;
     border-radius: 20px;
     width: 350px;
+    margin-bottom: 120px;
 
 
 
@@ -602,6 +607,10 @@ body{
     margin-right: 60px;
     justify-content: center;
 
+    .skills_mobile{
+        display: none;
+    }
+
     .cardAnimation1{
         animation-duration: 1s;
         animation-fill-mode:both;
@@ -700,7 +709,7 @@ body{
     display: grid;
     grid-template-columns: repeat(3, 30%);
     background-color: #f1f1f1;
-    padding: 50px 50px;
+    padding: 50px 20px;
     justify-content: center;
     column-gap: 1em;
     row-gap: 2em;
@@ -780,6 +789,7 @@ body{
 
         .coachs_card_img{
             width: 120px;
+            height: inherit;
 
             img{
                 height: inherit;
@@ -1356,14 +1366,14 @@ body{
 
 
         .navbar_items{
-            height: 100vh;
+            height: auto;
             position: absolute;
             z-index: 3;
             left: -100%;
             top: 83px;
             
             ul{ 
-                height: 100%;
+                height: auto;
                 display: flex;
                 flex-direction: column;
                 
@@ -1385,9 +1395,14 @@ body{
                     margin: 0;
                 }
                 
+                a{
+                    height: initial;
+                }
 
                 li{
                     width: 100vw;
+                    height: 70px;
+                    border-bottom: 1px solid black;
                     
                     
                     .dropdownGames{
@@ -1461,16 +1476,45 @@ body{
         background-color: gray;
         z-index: 50000;
 
-        a{
-            text-decoration: none;
-            font-family: $main-font;
-            color: white;
-        }
+            a{
+                text-decoration: none;
+                font-family: $main-font;
+                color: white;
+            }
 
         .gameName{
 
             font-size: 18px;
 
+        }
+    }
+
+    .user_dropdownUserMobile{
+
+        font-size: 18px;
+        position: absolute;
+        display: none;
+        width: 100%;
+        text-align: center;
+        background-color: gray;
+        z-index: 50000;
+
+        ul{
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        a{
+            display: flex;
+            list-style: none;
+            text-decoration: none;
+            font-family: $main-font;
+            color: white;
+            height: 60px;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid black;
         }
     }
 
@@ -1554,15 +1598,23 @@ body{
         }
     }
 
+    .stamp{
+
+        p{
+            font-size: 48px;
+        }
+    }
+
     .skills{
         margin: 0;
         grid-template-columns: repeat(4, 24%);
+        
     }
 
     #coach{
         display: grid;
-        grid-template-columns: repeat(2, 45%);
-        column-gap: 3em;
+        grid-template-columns: repeat(2, 48%);
+        column-gap: 2em;
 
         .coachs_card{
             border-radius: 0px;
@@ -1688,8 +1740,23 @@ body{
             }
         }
     }
-                                
     
+    .signInPopUp{
+        animation: downwardsMob 1s ease-in-out forwards;
+    }
+
+    .logInPopUp{
+        animation: downwardsMob 1s ease-in-out forwards;
+    }
+
+    @keyframes downwardsMob {
+        from{
+            transform: translateY(-100%);
+        }
+        to{
+            transform: translateY(40%);
+        }
+    }
 
     .stamp{
 
@@ -1699,27 +1766,13 @@ body{
     }
 
     .skills{
-        grid-template-columns: repeat(2, 45%);
-        grid-column-gap:0;
-        margin: 0;
+
+        display: flex;
+        flex-direction: column;
 
         .skills_card{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 0;
 
-            h1{
-                text-align: center;
-                font-size: 18px;
-            }
-            
-            p{
-                display: none;
-                text-align: center;
-            }
         }
-
     }
 
     .coach_banner{
@@ -1741,18 +1794,16 @@ body{
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 0;
-        padding-bottom: 40px;
-
+        padding: 40px 0;
 
         .coachs_card{
             overflow: hidden;
-            width: 60%;
+            width: 80%;
             height: 150px;
             margin: 0;
 
         .coachs_card_img{
-            width: 100px;
+            width: 80px;
         }
 
             .coachs_card_info{
@@ -1763,7 +1814,7 @@ body{
                     align-items: center;
                     height: 25%;
                     p{
-                        font-size: 12px;
+                        font-size: 10px;
                         margin: 0;
                         align-items: center;
                     }
@@ -1781,14 +1832,14 @@ body{
 
                 .coachs_card_info_review{
                     height: 50%;
+                    font-size: 10px;
                 }
 
                 .coachs_card_info_important{
                     height: 25%;
                     p{
-                        margin: 5px;
-                        align-self: center;
-                        font-size: 12px;                        
+                        
+                        font-size: 10px;                        
                     }
                 }
             }
@@ -1811,12 +1862,14 @@ body{
                     p{
                         font-size: 16px;
                     }
+
+                    .swiperGames-button{
+                        padding: 10px 50px;
+                    }
         
                     a{
-                        
-        
                         button{
-                            padding: none;
+                            padding: 10px 50px;
                         }
                     }
         
@@ -1827,6 +1880,8 @@ body{
         }
             
         }
+
+    
 
     .form_container{
 

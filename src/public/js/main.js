@@ -1,50 +1,5 @@
 home = {
 
-    // validarNick(data) {
-    //     var flag = true;
-    //     if(!/^[A-Za-z]+$/.test(data)){
-    //         console.log("nick invalido")
-    //         var flag = false;
-    //     }
-    //     return flag;
-    // },
-
-
-    // validarMail(data) {
-    //     var flag = true;    
-    //      if (!/[\w-\.]{2,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/.test(data)) {
-    //          console.log("email invalido");
-    //         flag = false;
-    //      }
-         
-    //    return flag;
-    //   },
-
-    // validarPass(data){
-    //     var flag = true
-    //    if (!/^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]){8,15}$/.test(data)){
-    //        console.log("pass invalida")
-    //        flag = false
-    //    }
-    //    return flag
-    // },
-
-     
-    // validar(){
-    //     let email = document.getElementById("email");
-    //     if (home.validarMail(email.value)){
-    //         console.log("email valido")
-    //     }
-    //     let nick = document.getElementById("nick")
-    //     if (home.validarNick(nick.value)){
-    //         console.log("nick valido")
-    //     }
-    //     let pass = document.getElementById("pass")
-    //     if (home.validarPass(pass.value)){
-    //         console.log("pass valida")
-    //     }
-    // },
-
     showPopUp(){
         document.querySelector(".signInPopUp").setAttribute("class", "signInPopUp show")
     },
@@ -375,10 +330,19 @@ displayArray = [];
             $('.line2').toggleClass('displayNone');
             $('.line3').toggleClass('rotateLine3');
         })
+        $('.user').on('click', () => {
+            console.log('clicked')
+            $('.user_dropdownUserMobile').slideDown(300);
+            $('.navbar_items').toggleClass('active');
+            $('.line1').toggleClass('rotateLine1');
+            $('.line2').toggleClass('displayNone');
+            $('.line3').toggleClass('rotateLine3');
+        })
     }
 
     $('.burger').on('click', () => {
         $('.dropdownGamesMobile').slideUp(300)
+        $('.user_dropdownUserMobile').slideUp(300)
     })
 
     

@@ -442,6 +442,10 @@ body {
   display: none;
 }
 
+.user_dropdownUserMobile {
+  display: none;
+}
+
 .validation_errors {
   background: #200122;
   /* fallback for old browsers */
@@ -570,6 +574,7 @@ body {
   padding: 10px 0;
   border-radius: 20px;
   width: 350px;
+  margin-bottom: 120px;
 }
 
 .signInForm .signInForm_input {
@@ -758,6 +763,10 @@ body {
           justify-content: center;
 }
 
+.skills .skills_mobile {
+  display: none;
+}
+
 .skills .cardAnimation1 {
   -webkit-animation-duration: 1s;
           animation-duration: 1s;
@@ -900,7 +909,7 @@ body {
   -ms-grid-columns: (30%)[3];
       grid-template-columns: repeat(3, 30%);
   background-color: #f1f1f1;
-  padding: 50px 50px;
+  padding: 50px 20px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -1001,6 +1010,7 @@ body {
 
 #coach .coachs_card .coachs_card_img {
   width: 120px;
+  height: inherit;
 }
 
 #coach .coachs_card .coachs_card_img img {
@@ -1618,14 +1628,14 @@ footer .socials_media i:hover {
     width: 30px;
   }
   .navbar .navbar_items {
-    height: 100vh;
+    height: auto;
     position: absolute;
     z-index: 3;
     left: -100%;
     top: 83px;
   }
   .navbar .navbar_items ul {
-    height: 100%;
+    height: auto;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1654,8 +1664,13 @@ footer .socials_media i:hover {
     position: relative;
     margin: 0;
   }
+  .navbar .navbar_items ul a {
+    height: initial;
+  }
   .navbar .navbar_items ul li {
     width: 100vw;
+    height: 70px;
+    border-bottom: 1px solid black;
   }
   .navbar .navbar_items ul li .dropdownGames {
     top: 0px;
@@ -1726,6 +1741,37 @@ footer .socials_media i:hover {
   }
   .dropdownGamesMobile .gameName {
     font-size: 18px;
+  }
+  .user_dropdownUserMobile {
+    font-size: 18px;
+    position: absolute;
+    display: none;
+    width: 100%;
+    text-align: center;
+    background-color: gray;
+    z-index: 50000;
+  }
+  .user_dropdownUserMobile ul {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  .user_dropdownUserMobile a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    list-style: none;
+    text-decoration: none;
+    font-family: "Exo", sans-serif;
+    color: white;
+    height: 60px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border-bottom: 1px solid black;
   }
   .active {
     -webkit-animation: fromLeft 1s ease-in-out forwards;
@@ -1858,6 +1904,9 @@ footer .socials_media i:hover {
       border-color: white;
     }
   }
+  .stamp p {
+    font-size: 48px;
+  }
   .skills {
     margin: 0;
     -ms-grid-columns: (24%)[4];
@@ -1866,10 +1915,10 @@ footer .socials_media i:hover {
   #coach {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: (45%)[2];
-        grid-template-columns: repeat(2, 45%);
-    -webkit-column-gap: 3em;
-            column-gap: 3em;
+    -ms-grid-columns: (48%)[2];
+        grid-template-columns: repeat(2, 48%);
+    -webkit-column-gap: 2em;
+            column-gap: 2em;
   }
   #coach .coachs_card {
     border-radius: 0px;
@@ -1954,16 +2003,38 @@ footer .socials_media i:hover {
   .navbar .navbar_items .items li {
     height: 60px;
   }
+  .signInPopUp {
+    -webkit-animation: downwardsMob 1s ease-in-out forwards;
+            animation: downwardsMob 1s ease-in-out forwards;
+  }
+  .logInPopUp {
+    -webkit-animation: downwardsMob 1s ease-in-out forwards;
+            animation: downwardsMob 1s ease-in-out forwards;
+  }
+  @-webkit-keyframes downwardsMob {
+    from {
+      -webkit-transform: translateY(-100%);
+              transform: translateY(-100%);
+    }
+    to {
+      -webkit-transform: translateY(40%);
+              transform: translateY(40%);
+    }
+  }
+  @keyframes downwardsMob {
+    from {
+      -webkit-transform: translateY(-100%);
+              transform: translateY(-100%);
+    }
+    to {
+      -webkit-transform: translateY(40%);
+              transform: translateY(40%);
+    }
+  }
   .stamp p {
     font-size: 26px;
   }
   .skills {
-    -ms-grid-columns: (45%)[2];
-        grid-template-columns: repeat(2, 45%);
-    grid-column-gap: 0;
-    margin: 0;
-  }
-  .skills .skills_card {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1971,18 +2042,6 @@ footer .socials_media i:hover {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    padding: 0;
-  }
-  .skills .skills_card h1 {
-    text-align: center;
-    font-size: 18px;
-  }
-  .skills .skills_card p {
-    display: none;
-    text-align: center;
   }
   .coach_banner {
     background-color: #f1f1f1;
@@ -2010,17 +2069,16 @@ footer .socials_media i:hover {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    padding: 0;
-    padding-bottom: 40px;
+    padding: 40px 0;
   }
   #coach .coachs_card {
     overflow: hidden;
-    width: 60%;
+    width: 80%;
     height: 150px;
     margin: 0;
   }
   #coach .coachs_card .coachs_card_img {
-    width: 100px;
+    width: 80px;
   }
   #coach .coachs_card .coachs_card_info {
     position: relative;
@@ -2032,7 +2090,7 @@ footer .socials_media i:hover {
     height: 25%;
   }
   #coach .coachs_card .coachs_card_info .coachs_card_info_player p {
-    font-size: 12px;
+    font-size: 10px;
     margin: 0;
     -webkit-box-align: center;
         -ms-flex-align: center;
@@ -2048,16 +2106,13 @@ footer .socials_media i:hover {
   }
   #coach .coachs_card .coachs_card_info .coachs_card_info_review {
     height: 50%;
+    font-size: 10px;
   }
   #coach .coachs_card .coachs_card_info .coachs_card_info_important {
     height: 25%;
   }
   #coach .coachs_card .coachs_card_info .coachs_card_info_important p {
-    margin: 5px;
-    -ms-flex-item-align: center;
-        -ms-grid-row-align: center;
-        align-self: center;
-    font-size: 12px;
+    font-size: 10px;
   }
   .swiper-games .swiper-wrapper .swiper-slide .swiper-slide-info img {
     width: 80%;
@@ -2065,8 +2120,11 @@ footer .socials_media i:hover {
   .swiper-games .swiper-wrapper .swiper-slide .swiper-slide-info p {
     font-size: 16px;
   }
+  .swiper-games .swiper-wrapper .swiper-slide .swiper-slide-info .swiperGames-button {
+    padding: 10px 50px;
+  }
   .swiper-games .swiper-wrapper .swiper-slide .swiper-slide-info a button {
-    padding: none;
+    padding: 10px 50px;
   }
   .form_container .atypicalForm {
     width: 85%;

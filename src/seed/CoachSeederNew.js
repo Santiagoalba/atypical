@@ -19,7 +19,7 @@ function seed (gameName) {
                 description: faker.lorem.words(12),
                 game: gameName,
                 price: faker.random.number({min:10, max:100}),
-                img: 'src/public/image/profile.jpg'
+                img: 'profile.jpg'
             })
         )
     }
