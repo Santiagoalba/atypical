@@ -6,7 +6,7 @@ const MONGODB_URL = require("../database"); //get your mongoose string
 //create your array. i inserted only 1 object here
 const seedNumber = 20
 const coachs = []
-const games = [ "valorant", "rocket league", "league", "starcraft", "dota 2", "ssb", "overwatch", "pubg"]
+const games = [ "Valorant", "Rocket League", "League", "Starcraft", "Dota 2", "Ssb", "Overwatch", "Pubg"]
 
 
 function seed (gameName) {

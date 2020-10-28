@@ -446,6 +446,10 @@ body {
   display: none;
 }
 
+.admin_dropdownAdminMobile {
+  display: none;
+}
+
 .validation_errors {
   background: #200122;
   /* fallback for old browsers */
@@ -1141,8 +1145,8 @@ body {
 }
 
 .newsletter_container {
-  -webkit-filter: invert(1);
-          filter: invert(1);
+  -webkit-filter: drop-shadow(1);
+          filter: drop-shadow(1);
   margin-top: 30px;
   height: 200px;
   background-image: url("../image/banner_newsletter.jpg");
@@ -1166,8 +1170,12 @@ body {
   width: 100%;
   height: 100%;
   font-family: "Exo", sans-serif;
-  color: blue;
+  color: #dd5126;
   font-size: 18px;
+}
+
+.newsletter_container .socials_newsletter .title {
+  text-transform: uppercase;
 }
 
 .newsletter_container .socials_newsletter p {
@@ -1222,12 +1230,9 @@ body {
   color: black;
 }
 
-footer {
+footer .footer_grid {
   -webkit-filter: invert(1);
           filter: invert(1);
-}
-
-footer .footer_grid {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 2fr 1fr;
@@ -1293,6 +1298,10 @@ footer .games ul {
           columns: 2;
   padding: 0;
   margin: 5px 0;
+}
+
+footer .games ul a {
+  text-decoration: none;
 }
 
 footer .games ul li {
@@ -1589,6 +1598,14 @@ footer .socials_media i:hover {
   width: 230px;
 }
 
+.form_container .atypicalForm .formulario .atypicalForm_input select {
+  padding: 8px 0 6px 7px;
+  margin: 10px 0;
+  font-size: 14px;
+  font-family: "Exo", sans-serif;
+  width: 241px;
+}
+
 .form_container .atypicalForm .formulario .atypicalForm_input label {
   font-size: 14px;
   font-family: "Exo", sans-serif;
@@ -1757,6 +1774,37 @@ footer .socials_media i:hover {
     margin: 0;
   }
   .user_dropdownUserMobile a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    list-style: none;
+    text-decoration: none;
+    font-family: "Exo", sans-serif;
+    color: white;
+    height: 60px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border-bottom: 1px solid black;
+  }
+  .admin_dropdownAdminMobile {
+    font-size: 18px;
+    position: absolute;
+    display: none;
+    width: 100%;
+    text-align: center;
+    background-color: gray;
+    z-index: 50000;
+  }
+  .admin_dropdownAdminMobile ul {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  .admin_dropdownAdminMobile a {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -2006,10 +2054,18 @@ footer .socials_media i:hover {
   .signInPopUp {
     -webkit-animation: downwardsMob 1s ease-in-out forwards;
             animation: downwardsMob 1s ease-in-out forwards;
+    padding: 0;
+  }
+  .signInPopUp .signInForm {
+    width: 300px;
   }
   .logInPopUp {
     -webkit-animation: downwardsMob 1s ease-in-out forwards;
             animation: downwardsMob 1s ease-in-out forwards;
+    padding: 0;
+  }
+  .logInPopUp .logInForm {
+    width: 300px;
   }
   @-webkit-keyframes downwardsMob {
     from {
@@ -2129,6 +2185,29 @@ footer .socials_media i:hover {
   .form_container .atypicalForm {
     width: 85%;
   }
+  footer .footer_grid {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 30px 18px;
+  }
+  footer span {
+    font-size: 18px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  footer .newsletter_container p {
+    width: 80%;
+    text-align: center;
+  }
   footer .logo {
     width: 100%;
     display: -webkit-box;
@@ -2152,18 +2231,35 @@ footer .socials_media i:hover {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+    margin-left: 10px;
   }
-  footer .socials_media {
+  footer .games ul li {
+    font-size: 12px;
+    line-height: 30px;
+  }
+  footer .socials {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  footer .socials .socials_media {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+    width: 50%;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
   }
-  footer .footer_grid {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 70% 30%;
-        grid-template-columns: 70% 30%;
+  footer .socials .socials_media a {
+    width: initial;
   }
 }
 

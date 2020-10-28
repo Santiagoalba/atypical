@@ -32,14 +32,32 @@ indexCtrl.renderAbout = (req, res) => {
   res.render('about');
 };
 
-indexCtrl.subscribeNewsletter = (req, res) => {
-  const subscriber = new Sub ({
-    email: req.body.email
-  })
+// indexCtrl.subscribeNewsletter = (req, res) => {
+//   const subscriber = new Sub ({
+//     email: req.body.email
+//   })
 
-  const newSub = subscriber.save()
-  req.flash('success_msg', 'Subscribed to newsletter!!!')
-  res.redirect('/')
+//   const newSub = subscriber.save()
+//   req.flash('success_msg', 'Subscribed to newsletter!!!')
+//   res.redirect('/')
+// }
+
+indexCtrl.subscribeNewsletter = async (req, res) => {
+  const email = req.body.email;
+  const sub = await Sub.findOne({email});
+  if(sub) {
+    req.flash("error_msg", "Already suscribed to newsletter");
+    res.redirect("/");
+  } else {
+
+    const subscriber = new Sub ({
+      email: req.body.email
+    })
+  
+    const newSub = subscriber.save()
+    req.flash('success_msg', 'Subscribed to newsletter!!!')
+    res.redirect('/')
+  }
 }
 
 searchUser = (search) => {

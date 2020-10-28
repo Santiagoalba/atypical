@@ -338,6 +338,15 @@ displayArray = [];
             $('.line2').toggleClass('displayNone');
             $('.line3').toggleClass('rotateLine3');
         })
+        $('.admin_tab').on('click', () => {
+            console.log('clicked')
+            $('.admin_dropdownAdminMobile').slideDown(300);
+            $('.navbar_items').toggleClass('active');
+            $('.line1').toggleClass('rotateLine1');
+            $('.line2').toggleClass('displayNone');
+            $('.line3').toggleClass('rotateLine3');
+        })
+
     }
 
     $('.burger').on('click', () => {

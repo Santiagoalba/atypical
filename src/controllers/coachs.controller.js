@@ -81,49 +81,49 @@ coachCtrl.deletecoach = async (req, res) =>{
 
 
 coachCtrl.renderValorant = async (req, res) =>{
-  const coach = await Coach.find({game: 'valorant'}).limit(10).lean()
+  const coach = await Coach.find({game: 'Valorant'}).limit(10).lean()
   
   res.render('coachs/valorant', {coach})
 }
 
 coachCtrl.renderOverwatch = async (req, res) =>{
-  const coach = await Coach.find({game: 'overwatch'}).limit(10).lean()
+  const coach = await Coach.find({game: 'Overwatch'}).limit(10).lean()
   
   res.render('coachs/overwatch', {coach})
 }
 
 coachCtrl.renderSsb = async (req, res) =>{
-  const coach = await Coach.find({game: 'ssb'}).limit(10).lean()
+  const coach = await Coach.find({game: 'Ssb'}).limit(10).lean()
   
   res.render('coachs/ssb', {coach})
 }
 
 coachCtrl.renderRocketLeague = async (req, res) =>{
-  const coach = await Coach.find({game: 'rocket league'}).limit(10).lean()
+  const coach = await Coach.find({game: 'Rocket League'}).limit(10).lean()
   
   res.render('coachs/rocket-league', {coach})
 }
 
 coachCtrl.renderDota2 = async (req, res) =>{
-  const coach = await Coach.find({game: 'dota2'}).limit(10).lean()
+  const coach = await Coach.find({game: 'Dota 2'}).limit(10).lean()
   
   res.render('coachs/dota2', {coach})
 }
 
 coachCtrl.renderStarcraft = async (req, res) =>{
-  const coach = await Coach.find({game: 'starcraft'}).limit(10).lean()
+  const coach = await Coach.find({game: 'Starcraft'}).limit(10).lean()
   
   res.render('coachs/starcraft', {coach})
 }
 
 coachCtrl.renderPubg = async (req, res) =>{
-  const coach = await Coach.find({game: 'pubg'}).limit(10).lean()
+  const coach = await Coach.find({game: 'Pubg'}).limit(10).lean()
   
   res.render('coachs/pubg', {coach})
 }
 
 coachCtrl.renderLeague = async (req, res) =>{
-  const coach = await Coach.find({game: 'league'}).limit(10).lean()
+  const coach = await Coach.find({game: 'League'}).limit(10).lean()
   res.render('coachs/league', {coach})
 }
 
